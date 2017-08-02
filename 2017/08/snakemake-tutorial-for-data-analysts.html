@@ -40,7 +40,7 @@
   <![endif]-->
 
 
-    <link href="/2017/07/snakemake-tutorial-for-data-analysts.html" rel="canonical" />
+    <link href="/2017/08/snakemake-tutorial-for-data-analysts.html" rel="canonical" />
 
         <meta name="description" content="Motivation In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex...">
 
@@ -56,9 +56,9 @@
 <meta property="og:title" content="Snakemake tutorial for data analysts"/>
 <meta property="og:description" content="Motivation In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex..."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="/2017/07/snakemake-tutorial-for-data-analysts.html"/>
+<meta property="og:url" content="/2017/08/snakemake-tutorial-for-data-analysts.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2017-07-20 19:10:00+02:00"/>
+<meta property="article:published_time" content="2017-08-02 17:36:00+02:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="/author/marko">
 <meta property="article:section" content="misc"/>
@@ -69,7 +69,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@StamenkM">
     <meta name="twitter:title" content="Snakemake tutorial for data analysts">
-    <meta name="twitter:url" content="/2017/07/snakemake-tutorial-for-data-analysts.html">
+    <meta name="twitter:url" content="/2017/08/snakemake-tutorial-for-data-analysts.html">
 
         <meta name="twitter:image:src" content="/theme/images/post-bg.jpg">
 
@@ -81,7 +81,7 @@
   "@type": "Article",
   "name": "Snakemake tutorial for data analysts",
   "headline": "Snakemake tutorial for data analysts",
-  "datePublished": "2017-07-20 19:10:00+02:00",
+  "datePublished": "2017-08-02 17:36:00+02:00",
   "dateModified": "",
   "author": {
     "@type": "Person",
@@ -89,7 +89,7 @@
     "url": "/author/marko"
   },
   "image": "/theme/images/post-bg.jpg",
-  "url": "/2017/07/snakemake-tutorial-for-data-analysts.html",
+  "url": "/2017/08/snakemake-tutorial-for-data-analysts.html",
   "description": "Motivation In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex..."
 }
 </script>
@@ -130,7 +130,7 @@
         <!-- TODO : Proper class for headline -->
         <span class="post-meta">
                 <a href="/author/marko">Marko</a>
-            | <time datetime="20 Jul 2017">20 Jul 2017</time>
+            | <time datetime="02 Aug 2017">02 Aug 2017</time>
         </span>
         <!-- TODO : Modified check -->
             <div class="post-cover cover" style="background-image: url('/theme/images/post-bg.jpg')">
@@ -146,10 +146,23 @@
         <div class="inner">
             <section class="post-content">
                 <h2>Motivation</h2>
-<p>In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex and usually lasts on an extended period of time. It involves many people organised in small groups. One of the main problem I had in data analysis is that after a certain amount of time, usually one month or two, reading some old scripts and codes became as hard as reading codes written by someone else. Reproducing the results obtained in the beginning of the analysis systematically took more time than it should. For this reason, we started using Snakemake.</p>
+<p>In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex and usually lasts on an extended period of time. It involves many people organised in small groups. One frequent problem in data analysis is that after a certain amount of time reading some old scripts and codes becomes as hard as reading codes written by someone else. Reproducing the results obtained in the beginning of the analysis systematically took more time than it should. For this reason, we started using <a href="http://snakemake.readthedocs.io/en/stable/" target="_blank">Snakemake</a>.</p>
+<h2>Credit</h2>
+<p>On the idea of <a href="http://pluca.webnode.com/" target="_blank">Luca Pescatore</a>, we used Snakemake during my master thesis and it appeared to be a crucial tool. We therefore decided to write this tutorial to detail some of our techniques and we hope it will help to spread it among the physics community. </p>
+<h2>Index</h2>
+<ol>
+<li><a href="#snakemakegit">Snakemake and git: the perfect combination</a></li>
+<li><a href="#require">Requirements for the tutorial</a></li>
+<li><a href="#install">Installation on Linux (MacOSX)</a></li>
+<li><a href="#simpleex">Simple example: plotting various function</a></li>
+<li><a href="#setup">Setting up the environment - setup.sh (Portability)</a></li>
+<li><a href="#snakefile">Snakemake rules - Snakefile</a></li>
+<li><a href="#reproducibility">Reproducibility</a></li>
+</ol>
+<p><a name="snakemakegit"></a></p>
 <h2>Snakemake and git: the perfect combination</h2>
 <p>I picture Snakemake as some kind of memory stick to help you store every single steps (or commands) involved in your analysis. As a good memory stick, you can easily share it. </p>
-<p>Snakemake is a workflow management system. It basically helps you build pipelines between the various scripts involved in your analysis and their respective inputs and outputs. Snakemake workflows are Python scripts extended by declarative codes to define rules. Once the Snakemake environment is set, one can run multiple rules directly from the command line. By specifying the dependencies between the various scripts, e.g. the output from the rule <em>n</em> is the input from the rule <em>n+1</em>, Snakemake explicitly stores the full architecture of your analysis. Theoretically, if every rule produces an output, one should be able to rerun a complete analysis with a single command line. This is where the combination with git becomes really interesting, if the analysis is built in a user-sensitive way, every people involved in the analysis could reproduce any results by a single command in a terminal, without having to open nor read a single line of code written by someone else. </p>
+<p>Snakemake is a workflow management system. It basically helps you build pipelines between the various scripts involved in your analysis and their respective inputs and outputs. Snakemake workflows are Python scripts extended by declarative codes to define rules. Once the Snakemake environment is set, one can run multiple rules directly from the command line. By specifying the dependencies between the various scripts, e.g. the output from the rule <em>n</em> is the input from the rule <em>n+1</em>, Snakemake explicitly stores the full architecture of your analysis. Theoretically, if every rule produces an output, one should be able to rerun a complete analysis with a single command. This is where the combination with git becomes really interesting, if the analysis is built in a user-sensitive way, every people involved in the analysis could reproduce any results by a single command in a terminal, without having to open nor read a single line of code written by someone else. </p>
 <p>We call this concept <strong>analyis preservation</strong> and it offers several advantages:</p>
 <ul>
 <li>Memory: stores the architecture of the work and allows you to rapidly perform a complete or partial analysis.   </li>
@@ -157,11 +170,13 @@
 <li>Modularity: as a rule is only a path between an input and an output, if one method or technique used in the analysis needs to be updated or modified, it can be replaced by a new rule with the same output. It allows a parallel comparison of different techniques in a very simple way.</li>
 <li>Reproducibility: if you're analysing a data sample collected by the same experiment in different years of exploitation and you plan to analyse data samples not even collected yet, Snakemake is a simple solution to perform the same analysis to different data sets.</li>
 </ul>
-<p>Of course, as every good tools, Snakemake takes some time to set up but spares you countless hours and especially right before deadlines. The purpose of this tutorial is to detail the installation, one simple application and to propose some solutions for the portability and reproducibility. Naturally, these solutions are our own, if you have some better ideas please contact me at <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com  </a> or <a href="https://twitter.com/StamenkM">Twitter</a>. </p>
+<p>Of course, as every good tools, Snakemake takes some time to set up but spares you countless hours and especially right before deadlines. The purpose of this tutorial is to detail the installation, one simple application and to propose some solutions for the portability and reproducibility. Naturally, these solutions are our own, if you have some better ideas please contact me at <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM" target="_blank">Twitter</a>. </p>
+<p><a name="require"></a></p>
 <h2>Requirements for the tutorial</h2>
-<p>For this tutorial, we assume you'll be working from a shell terminal and you have some basic notions of bash, a running python environment and a basic c++ compiler, e.g. g++.</p>
+<p>For this tutorial, we assume you'll be working from a shell terminal and you have some basic notions of bash, a running python environment and a basic c++ compiler with c++11, e.g. g++.</p>
+<p><a name="install"></a></p>
 <h2>Installation on Linux (MacOSX)</h2>
-<p>The easiest way to install Snakemake is via Conda. First make sure that you have the latest version of <a href="https://repo.continuum.io/miniconda/">Miniconda installed</a>. If you're working on Linux, run the following commands in the terminal:</p>
+<p>The easiest way to install Snakemake is via Conda. First make sure that you have the latest version of <a href="https://repo.continuum.io/miniconda/" target="_blank">Miniconda installed</a>. If you're working on Linux, run the following commands in the terminal:</p>
 <div class="highlight"><pre><span></span>wget <span class="s1">&#39;https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh&#39;</span>
 chmod +x Miniconda-latest-Linux-x86_64.sh
 ./Miniconda-latest-Linux-x86_64.sh
@@ -182,19 +197,21 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
-<h2>Simple example: plotting various order function</h2>
-<p>The purpose of this tutorial is to show you the basics of Snakemake by building a simple example of a Snakemake workflow. The idea is to demonstrate how easy it is to handle different programming languages as well as a complete architecture of a project. Furthermore, the simple example presented in this tutorial is meant to demonstrate the <strong>Memory</strong> advantage of the Snakemake environment. It's also a good starting point to present our solutions for the <strong>Portability</strong> also referred as User-Sensitivity and the <strong>Reproducibility</strong>. The two latter are not directly a consequence of Snakemake but those properties are really simplified once set correctly. </p>
-<p>In order to make it more interesting, we prepared a tutorial starter that can be downloaded from <a href="https://github.com/mstamenk/snakemake-tutorial-starter">Github</a> or directly from the command line:</p>
+<p>See the <a href="http://snakemake.readthedocs.io/en/stable/" target="_blank">official manual</a> for more detailed informations. </p>
+<p><a name="simpleex"></a></p>
+<h2>Simple example: plotting various functions</h2>
+<p>The purpose of this tutorial is to show you the basics of Snakemake by building a simple example of a workflow. The idea is to demonstrate how easy it is to handle different programming languages as well as a complete architecture of a project within the executing environment. Furthermore, the simple example presented in this tutorial is meant to demonstrate the <strong>Memory</strong> advantage of the Snakemake environment. It's also a good starting point to present our solutions for the <strong>Portability</strong> also referred as User-Sensitivity and the <strong>Reproducibility</strong>. The two latter are not directly a consequence of Snakemake but those properties are really simplified once set correctly. </p>
+<p>In order to make it more interesting, we prepared a tutorial starter that can be downloaded from <a href="https://github.com/mstamenk/snakemake-tutorial-starter" target="_blank">Github</a> or directly from the command line:</p>
 <div class="highlight"><pre><span></span>git clone https://github.com/mstamenk/snakemake-tutorial-starter.git
 </pre></div>
 
 
 <p>The simple example uses mainly three programming languages: bash, c++ and python. The architecture goes as follows:</p>
-<div class="highlight"><pre><span></span><span class="p">|</span>--snakemake-tutorial-starter
+<div class="highlight"><pre><span></span><span class="c1"># Architecture of the project</span>
+<span class="p">|</span>--snakemake-tutorial-starter
           <span class="p">|</span>--setup.sh                 <span class="c1"># TO BE COMPLETED</span>
           <span class="p">|</span>--Snakefile                <span class="c1"># TO BE COMPLETED</span>
           <span class="p">|</span>--config.yml               <span class="c1"># TO BE COMPLETED</span>
-          <span class="p">|</span>--setup.sh                 <span class="c1"># TO BE COMPLETED</span>
           <span class="p">|</span>--scripts
                 <span class="p">|</span>--setup_path.sh      <span class="c1"># TO BE COMPLETED </span>
           <span class="p">|</span>--routines
@@ -205,12 +222,12 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
           <span class="p">|</span>--cpp
                 <span class="p">|</span>--src
                       <span class="p">|</span>--produce.cpp  <span class="c1"># COMPLETE</span>
-          <span class="p">|</span>--ressource
+          <span class="p">|</span>--resource
 </pre></div>
 
 
 <h4>C++ - produce.cpp</h4>
-<p>The c++ file <code>produce.cpp</code> is a basic code computing solving the equation <code>y=f(x)</code> for 4 different modes : <em>Zero</em> , <em>Linear</em> , <em>Square</em> and <em>Cubic</em>. It's built in such a way that, once compiled, every informations can be detailed in the command line:</p>
+<p>The c++ file <code>produce.cpp</code> is a basic code solving the equation <code>y=f(x)</code> for 4 different modes : <em>Zero</em> , <em>Linear</em> , <em>Square</em> and <em>Cubic</em>. It's built in such a way that, once compiled, every informations can be detailed in the command line:</p>
 <div class="highlight"><pre><span></span>./produce.out --mode Square 
               --start <span class="m">10</span> 
               --end <span class="m">100</span> 
@@ -221,23 +238,24 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 
 <p>For example, the previous command will solve the equation <code>y=x*x</code> for every integers between <code>10</code> and <code>100</code> and save them in the file <code>/path/to/folder/Square_forPlotting.dat</code>. The final output contains two columns with the <code>x</code> and <code>y</code> values. </p>
 <h4>Python - Analysis.py  - process.py - plot.py</h4>
-<p>Python is used to superficially handle the different filenames and locations required in the analysis. </p>
+<p>Python is used to superficially handle the different filenames, plot colours and locations required in the analysis. </p>
 <p><strong>Analysis.py</strong></p>
-<p>This file is the center of the full architecture. It contains every path definition to the various directories in the project as well as the names and specificities of every ressource files produced or required. The locations are fetched from a bash script. </p>
+<p>This file is the center of the full architecture. It contains every path definition to the various directories in the project as well as the names and specificities of every resource files produced or required. The locations are fetched from a bash script. </p>
 <p><strong>process.py</strong></p>
-<p>The script <code>process.py</code> simply runs the c++ executable. In some sense, it doesn't add any important information but we choose to run everything from a python script in order to impose the location and the name of the file in which the produced informations are stored. For example, the data produced by the executable for the mode <em>Linear</em> will be stored in the <code>ressource</code> directory under the name <code>Linear_forPlotting.dat</code> and plotted in cyan. All these informations are stored in the <code>Analysis.py</code> script and therefore, we make sure that throughout the analysis, we don't need to take care of the names of the various files containing informations as they are all produced and read from the central script <code>Analysis.py</code>.</p>
+<p>The script <code>process.py</code> simply runs the c++ executable. In some sense, it doesn't add any important information but we choose to run everything from a python script in order to impose the location and the name of the file in which the produced informations are stored. For example, the data produced by the executable for the mode <em>Linear</em> will be stored in the <code>resource</code> directory under the name <code>Linear_forPlotting.dat</code> and plotted in cyan. All these informations are stored in the <code>Analysis.py</code> script and therefore, we make sure that throughout the analysis, we don't need to take care of the names of the various files containing informations as they are all produced and read from the central script <code>Analysis.py</code>.</p>
 <p>The following command line is used for the script:</p>
 <div class="highlight"><pre><span></span>python process.py --mode Square --start <span class="m">10</span> --end <span class="m">100</span> 
 </pre></div>
 
 
 <p><strong>plot.py</strong></p>
-<p>The script <code>plot.py</code> simply reads, for a specific mode, the various informations stored in the <code>ressourcer</code> folder. </p>
+<p>The script <code>plot.py</code> simply reads, for a specific mode, the various informations stored in the <code>resource</code> folder. </p>
 <div class="highlight"><pre><span></span>python plot.py --mode Square
 </pre></div>
 
 
-<p>The previous command will read the file <code>ressource/Square_forPlotting.dat</code> and plot the various modes with their respective colors to finally store them in the folder <code>plots/</code> which location is defined in a user-sensitive way in <code>setup.sh</code>. </p>
+<p>The previous command will read the file <code>resource/Square_forPlotting.dat</code> and plot the various modes with their respective colors to finally store them in the folder <code>plots/</code> which location is defined in a user-sensitive way in <code>setup.sh</code>. </p>
+<p><a name="setup"></a></p>
 <h2>Setting up the environment - setup.sh</h2>
 <p>In order to use Snakemake efficiently, we usually work with at least 2 terminals, one with the snake environment activated and another one with an interactive working environment. Also, Snakemake requires <strong>python3</strong>. Sometimes, depending on your working habits or the machine on which you perform your analyses, you might want to use <strong>python2</strong>. We use a single bash script to set the two different environments and handle the proper version of python required for the various scripts. </p>
 <div class="highlight"><pre><span></span><span class="c1"># setup.sh</span>
@@ -278,12 +296,12 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 <span class="nb">export</span> <span class="nv">CPPSRC</span><span class="o">=</span><span class="nv">$CPP</span>/src
 <span class="nb">export</span> <span class="nv">SCRIPTS</span><span class="o">=</span><span class="nv">$PWD</span>/scripts
 <span class="nb">export</span> <span class="nv">PYTHON</span><span class="o">=</span><span class="nv">$PWD</span>/python
-<span class="nb">export</span> <span class="nv">RESSOURCE</span><span class="o">=</span><span class="nv">$PWD</span>/ressource
+<span class="nb">export</span> <span class="nv">RESOURCE</span><span class="o">=</span><span class="nv">$PWD</span>/resource
 <span class="nb">export</span> <span class="nv">ROUTINES</span><span class="o">=</span><span class="nv">$PWD</span>/routines
 </pre></div>
 
 
-<p>The <strong>Portability</strong> or <strong>User-Sensitivity</strong> is defined directly in the bash script. This is useful if you have a certain routine which is different from your colleagues and for example you store your informations, ressources or even results in folders that are not in the project directory. Nevertheless, if you're working in group, you would like the locations of the specific folders to be defined in one place and never think about it again. One solution is to do it directly in the <code>setup.sh</code>. In this example, I define a folder <code>Desktop/plots/</code> which is not absolute and only accessible for me. If you want to run this example on your machine, you need to create a directory and indicate its path in the <code>elif</code> statement. Don't forget to complete the condition <code>$USER = ""</code> where from a shell terminal you can find the value of <code>$USER</code> with the command <code>echo $USER</code>.</p>
+<p>The <strong>Portability</strong> or <strong>User-Sensitivity</strong> is defined directly in the bash script. This is useful if you have a certain routine which is different from your colleagues and for example you store your informations, resources or even results in folders that are not in the project directory. Therefore, if you're working in group, you would like the locations of the specific folders to be defined in one place and never think about it again. One solution is to do it directly in the <code>setup.sh</code>. In this example, I define a folder <code>Desktop/plots/</code> which is not absolute and only accessible for me. If you want to run this example on your machine, you need to create a directory and indicate its path in the <code>elif</code> statement. Don't forget to complete the condition <code>$USER = ""</code> where from a shell terminal you can find the value of <code>$USER</code> with the command <code>echo $USER</code>.</p>
 <div class="highlight"><pre><span></span><span class="c1"># setup.sh</span>
 <span class="c1"># Portability (User-sensitivity) - &quot;echo $USER&quot; in command line</span>
 <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$USER</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;marko&quot;</span> <span class="o">]</span>
@@ -298,8 +316,9 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
-<p>Two more lines are required to finalise the working environment. We need to specify the <code>$PYTHONPATH</code> so the modules defined in different folders can be imported one into the other. The last line about the <code>PY2</code> ensures that even if we are working in the snake environment, we still have access to the python2 version. </p>
-<div class="highlight"><pre><span></span><span class="c1"># Required to import modules in python</span>
+<p>Two more lines are required to finalise the working environment. We need to specify the <code>$PYTHONPATH</code> so the modules defined in different folders can be imported one into the other (this step is specific to the way python works). The last line about the <code>PY2</code> ensures that even if we are working in the snake environment, you still have access to the python2 version. </p>
+<div class="highlight"><pre><span></span><span class="c1"># setup.sh</span>
+<span class="c1"># Required to import modules in python</span>
 <span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:<span class="nv">$TUTO</span>:<span class="nv">$ROUTINES</span>:<span class="nv">$PYTHON</span>:<span class="nv">$PY2</span>
 
 <span class="c1"># Complete if the scripts require python2</span>
@@ -309,11 +328,12 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 
 <p>In conclusion, the <code>setup.sh</code> bash script has the following advantage:</p>
 <ul>
-<li>Environment setup: we use one script to set up the two different environments: snake and interactive. </li>
-<li>Locations definition: we define the various locations required in our analysis. Since they are define from a bash script, they are accessible from the terminal and from every programming languages. </li>
-<li>Reproducibility - User-Sensitivity: The locations specific to the users are defined in a user-sensitive way and all handled in a single place. For a group project, a simple update of the repertories (through git) should be work without any modifications user-dependant. </li>
-<li>Python multiplicity: the bash script allows (or forces) the use of multiple versions of python which are simply specified. </li>
+<li>Environment setup: we use one script to set up the two different environments (snake and interactive). </li>
+<li>Locations definition: we define the various locations required in our analysis. Since they are defined from a bash script, they are accessible from the terminal and from every programming languages. </li>
+<li>Portability - User-Sensitivity: The locations specific to the users are defined in a user-sensitive way and all handled in a single place. For a group project, a simple update of the repertories (through git) should work without any user-dependant modifications. </li>
+<li>Python multiplicity: the bash script allows the use of multiple versions of python which are simply specified. </li>
 </ul>
+<p><a name="snakefile"></a></p>
 <h2>Snakemake rules - Snakefile</h2>
 <p>In order to specify the various rules, the snake environment requires a <strong>Snakefile</strong>. For this example, we need to write the rules to run the scripts from the production of the data to the plotting. The steps are the following:</p>
 <ol>
@@ -338,11 +358,9 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
-<p>In this example, you can notice that the path are given in a relative way. It works because the <code>Snakefile</code> is in the main directory but let's imagine you have to change the architecture of the project for some reasons, if all the rules are defined in an relative way, it might take a certain amount of time to correct every path and it would be counter-productive. One clever way to overcome this issue is to use the <code>routines.Analysis.py</code> where every path of the project are defined in the variable <code>loc</code>. </p>
+<p>In this example, you can notice that the path are given in a relative way. It works because the <code>Snakefile</code> is in the main directory but let's imagine you have to change the architecture of the project for some reasons, if all the rules are defined in an relative way, it might take a certain amount of time to correct every path and it would be counter-productive. One clever way to overcome this issue is to use the <code>routines/Analysis.py</code> where every path of the project are defined in the variable <code>loc</code>. </p>
 <div class="highlight"><pre><span></span><span class="c1"># Snakefile</span>
 <span class="kn">from</span> <span class="nn">routines.Analysis</span> <span class="kn">import</span> <span class="n">loc</span>
-
-<span class="n">setup_path</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">SCRIPTS</span> <span class="o">+</span> <span class="s1">&#39;setup_path.sh&#39;</span>
 
 <span class="n">rule</span> <span class="nb">compile</span><span class="p">:</span>
     <span class="nb">input</span><span class="p">:</span> 
@@ -354,8 +372,8 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
-<p>The next step is the processing rule. Snakemake can take arguments directly in the command line through a syntax similar to python.</p>
-<div class="highlight"><pre><span></span>snakemake process --config <span class="nv">mode</span><span class="o">=</span>Linear <span class="nv">start</span><span class="o">=</span><span class="m">20</span> <span class="nv">end</span><span class="o">=</span>100
+<p>The next step is the processing rule which requires specified options. Snakemake can take arguments directly in the command line through a syntax similar to python.</p>
+<div class="highlight"><pre><span></span>snakemake process --config <span class="nv">mode</span><span class="o">=</span>Linear <span class="nv">start</span><span class="o">=</span><span class="m">20</span> <span class="nv">end</span><span class="o">=</span><span class="m">100</span> 
 </pre></div>
 
 
@@ -367,7 +385,7 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
-<p>Once the file create, add the following line on the top of the <code>Snakefile</code>.</p>
+<p>Once the file created, add the following line on the top of the <code>Snakefile</code>.</p>
 <div class="highlight"><pre><span></span><span class="c1"># Snakefile</span>
 <span class="n">configfile</span><span class="p">:</span> <span class="s1">&#39;config.yml&#39;</span>
 </pre></div>
@@ -377,6 +395,8 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 <div class="highlight"><pre><span></span><span class="c1"># Snakefile</span>
 <span class="kn">from</span> <span class="nn">routines.Analysis</span> <span class="kn">import</span> <span class="n">parseDatafiles</span>
 
+<span class="n">setup_path</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">SCRIPTS</span> <span class="o">+</span> <span class="s1">&#39;setup_path.sh&#39;</span>
+
 <span class="n">filename</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">parseDatafiles</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">])</span>
 <span class="n">plotname</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.dat&#39;</span><span class="p">,</span><span class="s1">&#39;.pdf&#39;</span><span class="p">)</span> 
 
@@ -385,14 +405,14 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
         <span class="n">exe</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">CPP</span> <span class="o">+</span> <span class="s1">&#39;produce.out&#39;</span><span class="p">,</span>
         <span class="n">script</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">PYTHON</span> <span class="o">+</span> <span class="s1">&#39;process.py&#39;</span>
     <span class="n">output</span><span class="p">:</span>
-        <span class="n">dat</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">RESSOURCE</span> <span class="o">+</span> <span class="n">filename</span>
+        <span class="n">dat</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">RESOURCE</span> <span class="o">+</span> <span class="n">filename</span>
     <span class="n">shell</span><span class="p">:</span>
         <span class="s2">&quot;source {setup_path} &amp;&amp; $PY2 {input.script} --mode {config[mode]} --start {config[start]} --end {config[end]}&quot;</span>
 
 <span class="n">rule</span> <span class="n">plot</span><span class="p">:</span>
     <span class="nb">input</span><span class="p">:</span>
         <span class="n">script</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">PYTHON</span> <span class="o">+</span> <span class="s1">&#39;plot.py&#39;</span><span class="p">,</span>
-        <span class="n">dat</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">RESSOURCE</span> <span class="o">+</span> <span class="n">filename</span>
+        <span class="n">dat</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">RESOURCE</span> <span class="o">+</span> <span class="n">filename</span>
     <span class="n">output</span><span class="p">:</span>
         <span class="n">plot</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">PLOTS</span> <span class="o">+</span> <span class="n">plotname</span>
     <span class="n">shell</span><span class="p">:</span>  
@@ -400,20 +420,27 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
-<p>This is the complete workflow. Now, you can run the complete job with a single command. </p>
+<p>This is the complete workflow. You might wonder why the shell command starts with a <code>'source scripts/setup_path.sh'</code>, this is in case you have other libraries you would like to add to your working environment. In our case, it's not a necessary step. </p>
+<p>Now, you can run the complete job with a single command. </p>
 <div class="highlight"><pre><span></span>snakemake plot
 </pre></div>
 
 
-<p>It should check for the missing files and create them in order to run the final rule. Finally, if you want Snakemake to rerun the rules where some inputs were modified, you have to trigger it first in the command line. </p>
+<p>It should check for the missing files and create them in order to run the final rule. </p>
+<p>Finally, if you want Snakemake to rerun the rules where some inputs were modified, you have to trigger it first in the command line. </p>
 <div class="highlight"><pre><span></span> snakemake -n -R <span class="sb">`</span>snakemake --list-input-changes<span class="sb">`</span>
 </pre></div>
 
 
 <p>Now, if you change the file <code>produce.cpp</code> and run the command <code>snakemake plot --config mode=Square</code> it will automatically compile the executable first and rerun every rules.</p>
+<p><a name="reproducibility"></a></p>
 <h2>Reproducibility</h2>
-<p>Let's now consider your working on an analysis with multiple data sets, taken at a different year for example. You have built your complete analysis using Snakemake and you would like a simple way to run the complete analysis for the new data sample. Let's also assume that the type of data set is really similar to the one on which you built Snakemake. The answer is again in the file <code>routines/Analysis.py</code>.</p>
-<div class="highlight"><pre><span></span><span class="n">dataID</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Zero&#39;</span>   <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Zero_forPlotting.dat&#39;</span><span class="p">,</span>  <span class="s1">&#39;b&#39;</span><span class="p">],</span>
+<p>Let's now consider your working on an analysis with multiple data sets, taken at a different year for example. You have built your complete analysis using Snakemake and you would like a simple way to run the same steps for the new data sample. Let's also assume that the type of data set is really similar to the one on which you built Snakemake. The answer is again in the file <code>routines/Analysis.py</code>.</p>
+<div class="highlight"><pre><span></span><span class="c1"># routines/Analysis.py</span>
+<span class="n">NAME</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">COLOR</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">dataID</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Zero&#39;</span>   <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Zero_forPlotting.dat&#39;</span><span class="p">,</span>  <span class="s1">&#39;b&#39;</span><span class="p">],</span>
            <span class="s1">&#39;Linear&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Linear_forPlotting.dat&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span>
            <span class="s1">&#39;Square&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Square_forPlotting.dat&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">],</span>
            <span class="s1">&#39;Cubic&#39;</span>  <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cubic_forPlotting.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span> <span class="p">]}</span>
@@ -423,20 +450,21 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
-<p>If you build your complete analysis using the function <code>parseDatafiles</code>, meaning that every scripts requiring one ressource fetches it through this function, by modifying the function itself you should be able to run the complete analysis in one single command.</p>
+<p>If you build your complete analysis using the function <code>parseDatafiles</code>, meaning that every scripts requiring one resource fetches it through this function, by modifying the function itself you should be able to run everything in one single command.</p>
 <h2>Conclusion</h2>
-<p>In summary, Snakemake is a powerful tool for analysis preservation. It stores the shell commands that you use throughout your analysis as well as the various ways to run your own scripts. One solution to make it user-sensitive and reproducible is to use the <code>setup.sh</code> and <code>routines/Analysis.py</code> files together. The other advantage we didn't develop in this tutorial is the fact that if you receive a complete analysis via a Snakemake + Git interface and you are not satisfied with one script. You prefer a certain optimisation technique over the one used in the current script, you can just create your custom script and replace the rule without changing the workflow. We call this concept <strong>Modularity</strong>. Finally, the four advantages greatly simplified by Snakemake are the <strong>Memory</strong>, <strong>Portability</strong>, <strong>Modularity</strong> and <strong>Reproducibility</strong>. We hope you appreciated! If you have any comments, suggestions or critics: <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM">Twitter</a>. Thank you! </p>
+<p>In summary, Snakemake is a powerful tool for <strong>analysis preservation</strong>. It stores the shell commands that you use throughout your analysis as well as the various ways to run your own scripts. One solution to make it user-sensitive and reproducible is to use the <code>setup.sh</code> and <code>routines/Analysis.py</code> files together. The other advantage we didn't develop in this tutorial is the fact that if you receive a complete analysis via a Snakemake + Git interface and you are not satisfied with one script. You prefer a certain optimisation technique over the one used in the current script, you can just create your custom script and replace the rule without changing the workflow. We call this concept <strong>Modularity</strong>. </p>
+<p>Finally, the four advantages greatly simplified by Snakemake are the <strong>Memory</strong>, <strong>Portability</strong>, <strong>Modularity</strong> and <strong>Reproducibility</strong>. We hope you appreciated! If you have any comments, suggestions or critics: <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM" target="_blank">Twitter</a>. Thank you! </p>
             </section>
 
             <section class="post-info">
                 <div class="post-share">
-                    <a class="twitter" href="https://twitter.com/share?text=Snakemake tutorial for data analysts&amp;url=/2017/07/snakemake-tutorial-for-data-analysts.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <a class="twitter" href="https://twitter.com/share?text=Snakemake tutorial for data analysts&amp;url=/2017/08/snakemake-tutorial-for-data-analysts.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
                     </a>
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2017/07/snakemake-tutorial-for-data-analysts.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2017/08/snakemake-tutorial-for-data-analysts.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
                     </a>
-                    <a class="googleplus" href="https://plus.google.com/share?url=/2017/07/snakemake-tutorial-for-data-analysts.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <a class="googleplus" href="https://plus.google.com/share?url=/2017/08/snakemake-tutorial-for-data-analysts.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
                     </a>
                     <div class="clear"></div>
