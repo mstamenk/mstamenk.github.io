@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2017-08-02T23:25:40-00:00</lastmod>
+<lastmod>2017-08-02T23:50:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2017-08-02T23:25:40-00:00</lastmod>
+<lastmod>2017-08-02T23:50:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2017-08-02T23:25:40-00:00</lastmod>
+<lastmod>2017-08-02T23:50:24-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -60,8 +60,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/2017/07/my-first-post.html</loc>
-<lastmod>2017-07-17T14:42:00+02:00</lastmod>
+<loc>/2017/08/my-first-post.html</loc>
+<lastmod>2017-08-01T14:42:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
