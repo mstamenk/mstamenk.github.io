@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+      <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-  <title>Marko Stamenkovic - Archives for July 2017</title>
+  <title>Tutorials</title>
 
 
   <meta name="HandheldFriendly" content="True" />
@@ -39,6 +39,36 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Marko Stamenkovic"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="Marko Stamenkovic"/>
+<meta property="og:description" content="View the blog."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/"/>
+<meta property="og:image" content="/theme/images/home-bg.jpg">
+
+<!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@StamenkM">
+  <meta name="twitter:title" content="Marko Stamenkovic">
+  <meta name="twitter:description" content="View the blog.">
+  <meta name="twitter:url" content="/">
+  <meta name="twitter:image:src" content="/theme/images/home-bg.jpg">
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Website",
+  "name": " Marko Stamenkovic ",
+  "url" : "/",
+  "image": "/theme/images/home-bg.jpg",
+  "description": "View the blog."
+}
+</script>
 </head>
 <!-- TODO : Body class -->
 <body class="home-template">
@@ -51,14 +81,14 @@
 
               <li role="presentation"><a href="/pages/about-me/">About me</a></li>
               <li role="presentation"><a href="/pages/contact-me/">Contact me</a></li>
-              <li role="presentation"><a href="/pages/tutorials/">Tutorials</a></li>
+              <li class="nav-tutorials active" role="presentation"><a href="/pages/tutorials/">Tutorials</a></li>
 
     </ul>
   </div>
 </nav>
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header id="blog-header" class="has-cover">
+    <header id="post-header" class="has-cover">
       <div class="inner">
         <nav id="navigation">
             <span id="home-button" class="nav-button">
@@ -68,22 +98,28 @@
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
           </span>
         </nav>
-        <h1 class="post-title">Archives for July 2017</h1>
+        <h1 class="post-title">Tutorials</h1>
             <div class="post-cover cover" style="background-image: url('/theme/images/post-bg.jpg')">
-        
       </div>
-    </header>    
+    </header>
 
   <section id="wrapper">
     <a class="hidden-close"></a>
-  <article class="post">
-    <div class="inner">
-      <dl>
-          <dt>17 Jul 2017</dt>
-          <dd><a href="/2017/07/my-first-post.html">My first post</a></dd>
-      </dl>
-    </div>
-  </article>
+  <!-- Post content -->
+  <main class="content" role="main">
+      <article class="post">
+      <div class="inner">
+          <section class="post-content">
+              <p>On this page, you can find the full list of tutorials I worte. If you have any suggestions or would like to see a tutorial about some interesting technique, let me know : <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM" target="_blank">Twitter</a>. I would be very pleased to collaborate!</p>
+<h2>Snakemake</h2>
+<ol>
+<li><a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html" target="_blank">Snakemake tutorial for data analysts</a></li>
+<li><a href="https://mstamenk.github.io/2017/08/snakefile-syntax-file-for-vi-vim.html" target="_blank">Snakefile syntax file for vi/vim</a></li>
+</ol>
+          </section>
+      </div>
+      </article>
+  </main>
       <!-- TODO : Body class -->
     <div id="body-class" style="display: none;" class=""></div>
 

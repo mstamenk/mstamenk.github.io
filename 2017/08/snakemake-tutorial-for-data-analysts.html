@@ -105,6 +105,7 @@
 
               <li role="presentation"><a href="/pages/about-me/">About me</a></li>
               <li role="presentation"><a href="/pages/contact-me/">Contact me</a></li>
+              <li role="presentation"><a href="/pages/tutorials/">Tutorials</a></li>
 
     </ul>
   </div>
@@ -335,7 +336,7 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </ul>
 <p><a name="snakefile"></a></p>
 <h2>Snakemake rules - Snakefile</h2>
-<p>In order to specify the various rules, the snake environment requires a <strong>Snakefile</strong>. For this example, we need to write the rules to run the scripts from the production of the data to the plotting. The steps are the following:</p>
+<p>In order to specify the various rules, the snake environment requires a <strong>Snakefile</strong> (if your working with vi/vim you might be interested in the syntax file presented in this <a href="https://mstamenk.github.io/2017/08/snakefile-syntax-file-for-vi-vim.html" target="_blank">tutorial</a>). For this example, we need to write the rules to run the scripts from the production of the data to the plotting. The steps are the following:</p>
 <ol>
 <li>Compile the <code>produce.cpp</code> file in an executable <code>produce.out</code></li>
 <li>Produce the data with the <code>produce.out</code> exectuable through the <code>process.py</code> script</li>
@@ -454,6 +455,11 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 <h2>Conclusion</h2>
 <p>In summary, Snakemake is a powerful tool for <strong>analysis preservation</strong>. It stores the shell commands that you use throughout your analysis as well as the various ways to run your own scripts. One solution to make it user-sensitive and reproducible is to use the <code>setup.sh</code> and <code>routines/Analysis.py</code> files together. The other advantage we didn't develop in this tutorial is the fact that if you receive a complete analysis via a Snakemake + Git interface and you are not satisfied with one script. You prefer a certain optimisation technique over the one used in the current script, you can just create your custom script and replace the rule without changing the workflow. We call this concept <strong>Modularity</strong>. </p>
 <p>Finally, the four advantages greatly simplified by Snakemake are the <strong>Memory</strong>, <strong>Portability</strong>, <strong>Modularity</strong> and <strong>Reproducibility</strong>. We hope you appreciated! If you have any comments, suggestions or critics: <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM" target="_blank">Twitter</a>. Thank you! </p>
+<h2>See also the other tutorials</h2>
+<ul>
+<li><a href="https://mstamenk.github.io/pages/tutorials/" target="_blank">Full list of tutorials</a></li>
+<li><a href="https://mstamenk.github.io/2017/08/snakefile-syntax-file-for-vi-vim.html" target="_blank">Snakefile syntax file for vi/vim</a></li>
+</ul>
             </section>
 
             <section class="post-info">
@@ -498,7 +504,7 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
                     <a class="post-nav-next" href="/2017/08/snakefile-syntax-file-for-vi-vim.html">
                         <section class="post-nav-teaser">
                             <i class="ic ic-arrow-left"></i>
-                                <h2 class="post-nav-title">Snakefile syntax file for vi-vim</h2>
+                                <h2 class="post-nav-title">Snakefile syntax file for vi/vim</h2>
                             <p class="post-nav-excerpt">Motivation If you're using vi/vim, you might want to use a colour syntax file for you...</p>
                         </section>
                     </a>
