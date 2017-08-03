@@ -155,10 +155,9 @@
 <li><a href="#snakemakegit">Snakemake and git: the perfect combination</a></li>
 <li><a href="#require">Requirements for the tutorial</a></li>
 <li><a href="#install">Installation on Linux (MacOSX)</a></li>
-<li><a href="#simpleex">Simple example: plotting various function</a></li>
-<li><a href="#setup">Setting up the environment - setup.sh (Portability)</a></li>
-<li><a href="#snakefile">Snakemake rules - Snakefile</a></li>
-<li><a href="#reproducibility">Reproducibility</a></li>
+<li><a href="#workflow">My first workflow</a></li>
+<li><a href="#seealso">See also</a></li>
+<li><a href="#snakefile">Snakefile</a></li>
 </ol>
 <p><a name="snakemakegit"></a></p>
 <h2>Snakemake and git: the perfect combination</h2>
@@ -195,11 +194,94 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
+<p><a name="workflow"></a></p>
 <h2>My first workflow</h2>
 <p>In order to make this tutorial slightly more interesting, we prepared a small project which allows you to plot four different modes completely from the terminal: <em>Zero</em>, <em>Linear</em>, <em>Square</em> and <em>Cubic</em>. </p>
-<p><img alt="Example" src="https://mstamenk.github.io/assets/images/Cubic_forPlotting.pdf"></p>
+<p><img alt="Example" src="https://mstamenk.github.io/assets/images/Cubic_forPlotting.png"></p>
 <p>Download the full example from <a href="https://github.com/mstamenk/snakemake-tutorial" target="_blank">Github</a>.</p>
 <div class="highlight"><pre><span></span>git clone https://github.com/mstamenk/snakemake-tutorial.git
+</pre></div>
+
+
+<p>Open two terminals and move to the root folder. From there, </p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> setup.sh snake <span class="c1"># Snakemake executing environment</span>
+<span class="nb">source</span> setup.sh       <span class="c1"># Interactive developing environment</span>
+</pre></div>
+
+
+<p>The project uses the Snakefile to explicit the pipelines. The idea is simple :</p>
+<ol>
+<li>Compile the c++ executable</li>
+<li>Process it using python</li>
+<li>Plot it with python</li>
+</ol>
+<p>Now from the Snakameke environment, you can run:</p>
+<div class="highlight"><pre><span></span>snakemake plot                                          <span class="c1"># Using the default values stored in the config.yml</span>
+snakemake plot --config <span class="nv">mode</span><span class="o">=</span>Cubic <span class="nv">start</span><span class="o">=</span><span class="m">20</span> <span class="nv">end</span><span class="o">=</span><span class="m">100</span>     <span class="c1"># Specifying the different variables yourself</span>
+</pre></div>
+
+
+<p>These commands will run the complete project by compiling the c++ executable and processing it. An explicit version of the Snakefile can be found at the end of this tutorial.
+ <a name="seealso"></a></p>
+<h2>See also</h2>
+<p>If you're interested in the following points:</p>
+<ul>
+<li>Use scripts written in python2 with Snakemake</li>
+<li>Build your project in a user-sensitive way in order to collaborate</li>
+<li>Reproducibility of your project and be able to run the full analysis on a different dataset by changing a single line</li>
+<li>Modularity of the rules</li>
+<li>Snakefile syntax file for vi/vim</li>
+</ul>
+<p>You can find a detailed tutorial for data analysts <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html">here</a>. </p>
+<h2>Conclusion</h2>
+<p>I hope this tutorial was useful, if you have any comments you can let me now: <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM" target="_blank">Twitter</a>. Thanks!
+ <a name="snakefile"></a></p>
+<h2>Snakefile</h2>
+<div class="highlight"><pre><span></span><span class="c1"># Snakefile</span>
+<span class="n">configfile</span><span class="p">:</span> <span class="s2">&quot;config.yml&quot;</span>
+
+<span class="n">rule</span> <span class="nb">compile</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> 
+        <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;cpp/src/produce.cpp&#39;</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="n">exe</span>    <span class="o">=</span> <span class="s1">&#39;cpp/produce.out&#39;</span>
+    <span class="n">shell</span><span class="p">:</span>
+        <span class="s2">&quot;echo &#39;g++ -std=c++11 {input.script} -o {output.exe}&#39; &amp;&amp;&quot;</span>
+        <span class="s2">&quot;g++ -std=c++11 {input.script} -o {output.exe}&quot;</span>
+
+<span class="n">dataID</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Zero&#39;</span>   <span class="p">:</span> <span class="s1">&#39;Zero_forPlotting.dat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Linear&#39;</span> <span class="p">:</span> <span class="s1">&#39;Linear_forPlotting.dat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Square&#39;</span> <span class="p">:</span> <span class="s1">&#39;Square_forPlotting.dat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Cubic&#39;</span>  <span class="p">:</span> <span class="s1">&#39;Cubic_forPlotting.dat&#39;</span><span class="p">,}</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="n">dataID</span><span class="p">[</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]]</span>
+<span class="n">plotname</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.dat&#39;</span><span class="p">,</span><span class="s1">&#39;.png&#39;</span><span class="p">)</span>
+
+<span class="n">rule</span> <span class="n">process</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">exe</span> <span class="o">=</span>  <span class="s1">&#39;cpp/produce.out&#39;</span><span class="p">,</span>
+        <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;python/process.py&#39;</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="n">dat</span> <span class="o">=</span>  <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;ressource/{name}&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">shell</span><span class="p">:</span>
+        <span class="s2">&quot;python {input.script} --mode {config[mode]} --start {config[start]} --end {config[end]}&quot;</span>
+
+<span class="n">rule</span> <span class="n">plot</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span>
+        <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;python/plot.py&#39;</span><span class="p">,</span>
+        <span class="n">dat</span> <span class="o">=</span> <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;ressource/{name}&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">:</span>
+        <span class="n">plot</span> <span class="o">=</span> <span class="n">expand</span><span class="p">(</span><span class="s1">&#39;plots/{name}&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">plotname</span><span class="p">)</span>
+    <span class="n">shell</span><span class="p">:</span>  
+        <span class="s2">&quot;python {input.script} --mode {config[mode]}&quot;</span>
+
+<span class="n">rule</span> <span class="n">clean</span><span class="p">:</span>
+    <span class="n">params</span><span class="p">:</span>
+        <span class="n">cpp</span> <span class="o">=</span> <span class="s1">&#39;cpp&#39;</span><span class="p">,</span>
+        <span class="n">resource</span> <span class="o">=</span> <span class="s1">&#39;resource&#39;</span><span class="p">,</span>
+        <span class="n">plots</span> <span class="o">=</span> <span class="s1">&#39;plots&#39;</span>
+    <span class="n">shell</span><span class="p">:</span>
+        <span class="s2">&quot;rm {params.cpp}/*.out &amp;&amp; rm {params.resource}/*.dat &amp;&amp; rm {params.plots}/*&quot;</span>
 </pre></div>
             </section>
 
