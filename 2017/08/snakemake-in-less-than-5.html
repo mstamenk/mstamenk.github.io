@@ -42,7 +42,7 @@
 
     <link href="/2017/08/snakemake-in-less-than-5.html" rel="canonical" />
 
-        <meta name="description" content="Motivation In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex...">
+        <meta name="description" content="This tutorial is a shorter version of Analysis preservation using Snakemake. It presents the basic features of Snakemake. If you're...">
 
         <meta name="author" content="Marko">
 
@@ -54,7 +54,7 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="Marko Stamenkovic"/>
 <meta property="og:title" content="Snakemake: my first workflow in less than 5 minutes"/>
-<meta property="og:description" content="Motivation In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex..."/>
+<meta property="og:description" content="This tutorial is a shorter version of Analysis preservation using Snakemake. It presents the basic features of Snakemake. If you're..."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="/2017/08/snakemake-in-less-than-5.html"/>
 <meta property="og:type" content="article"/>
@@ -73,7 +73,7 @@
 
         <meta name="twitter:image:src" content="/theme/images/post-bg.jpg">
 
-      <meta name="twitter:description" content="Motivation In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex...">
+      <meta name="twitter:description" content="This tutorial is a shorter version of Analysis preservation using Snakemake. It presents the basic features of Snakemake. If you're...">
 
 <script type="application/ld+json">
 {
@@ -90,7 +90,7 @@
   },
   "image": "/theme/images/post-bg.jpg",
   "url": "/2017/08/snakemake-in-less-than-5.html",
-  "description": "Motivation In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex..."
+  "description": "This tutorial is a shorter version of Analysis preservation using Snakemake. It presents the basic features of Snakemake. If you're..."
 }
 </script>
 </head>
@@ -146,7 +146,8 @@
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <h2>Motivation</h2>
+                <p><strong>This tutorial is a shorter version of <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html">Analysis preservation using Snakemake</a>. It presents the basic features of Snakemake. If you're interested in the concept of Analysis Preservation and how to take advantage of Snakemake by setting a mulit-user, reproducible, portable and modular working environment, you might want to look at <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html">this tutorial</a> or <a href="#seealso">this index</a></strong></p>
+<h2>Motivation</h2>
 <p>In counting experiments, analyses are performed to extract the pertinent informations from a data sample. The task is complex and usually lasts on an extended period of time. It involves many people organised in small groups. One frequent problem in data analysis is that after a certain amount of time reading some old scripts and codes becomes as hard as reading codes written by someone else. Reproducing the results obtained in the beginning of the analysis systematically took more time than it should. For this reason, we started using <a href="http://snakemake.readthedocs.io/en/stable/" target="_blank">Snakemake</a>.</p>
 <h2>Credit</h2>
 <p>On the idea of <a href="http://pluca.webnode.com/" target="_blank">Luca Pescatore</a>, we used Snakemake during my master thesis and it appeared to be a crucial tool. We therefore decided to write this tutorial to detail some of our techniques and we hope it will help to spread it among the physics community. </p>
@@ -170,13 +171,22 @@
 </ul>
 <p><a name="require"></a></p>
 <h2>Requirements for the tutorial</h2>
-<p>For this tutorial, we assume you'll be working from a shell terminal and you have some basic notions of bash, a running python3 environment and a basic c++ compiler with c++11, e.g. g++.</p>
+<p>For this tutorial, we assume you'll be working from a shell terminal and you have some basic notions of bash, a running python3 environment with the matplotlib library and a basic c++ compiler with c++11, e.g. g++.</p>
 <p><a name="install"></a></p>
 <h2>Installation on Linux (MacOSX)</h2>
-<p>The easiest way to install Snakemake is via Conda. First make sure that you have the latest version of <a href="https://repo.continuum.io/miniconda/" target="_blank">Miniconda installed</a>. If you're working on Linux, run the following commands in the terminal:</p>
-<div class="highlight"><pre><span></span>wget <span class="s1">&#39;https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh&#39;</span>
-chmod +x Miniconda-latest-Linux-x86_64.sh
-./Miniconda-latest-Linux-x86_64.sh
+<p>The easiest way to install Snakemake is via Conda. First make sure that you have the latest version of <a href="https://repo.continuum.io/miniconda/" target="_blank">Miniconda installed</a>. </p>
+<p>If you're working on Linux, run the following commands in the terminal:</p>
+<div class="highlight"><pre><span></span>apt-get install wget
+wget <span class="s1">&#39;https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh&#39;</span>
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+</pre></div>
+
+
+<p>If you're on MacOS:</p>
+<div class="highlight"><pre><span></span>curl https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh &gt; Miniconda3-latest-MacOSX-x86_64.sh
+chmod +x Miniconda3-latest-MacOSX-x86_64.sh
+./Miniconda3-latest-MacOSX-x86_64.sh
 </pre></div>
 
 
@@ -222,19 +232,6 @@ snakemake plot --config <span class="nv">mode</span><span class="o">=</span>Cubi
 
 
 <p>These commands will run the complete project by compiling the c++ executable and processing it. An explicit version of the Snakefile can be found at the end of this tutorial.
- <a name="seealso"></a></p>
-<h2>See also</h2>
-<p>If you're interested in the following points:</p>
-<ul>
-<li>Use scripts written in python2 with Snakemake</li>
-<li>Build your project in a user-sensitive way in order to collaborate</li>
-<li>Reproducibility of your project and be able to run the full analysis on a different dataset by changing a single line</li>
-<li>Modularity of the rules</li>
-<li>Snakefile syntax file for vi/vim</li>
-</ul>
-<p>You can find a detailed tutorial for data analysts <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html">here</a>. </p>
-<h2>Conclusion</h2>
-<p>I hope this tutorial was useful, if you have any comments you can let me now: <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM" target="_blank">Twitter</a>. Thanks!
  <a name="snakefile"></a></p>
 <h2>Snakefile</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Snakefile</span>
@@ -283,6 +280,20 @@ snakemake plot --config <span class="nv">mode</span><span class="o">=</span>Cubi
     <span class="n">shell</span><span class="p">:</span>
         <span class="s2">&quot;rm {params.cpp}/*.out &amp;&amp; rm {params.resource}/*.dat &amp;&amp; rm {params.plots}/*&quot;</span>
 </pre></div>
+
+
+<p><a name="seealso"></a></p>
+<h2>See also</h2>
+<p>If you're interested in the following points:</p>
+<ul>
+<li>Use scripts written in <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html#setup">python2 with Snakemake</a>: the Snakemake environment works with python3, with an appropriate bash script, this is something you can override.</li>
+<li>Build your project in a <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html#setup">user-sensitive</a> way in order to collaborate: combined with git, you might want to define your project in a user-sensitive way so it's easier to share it among the persons involved in the project</li>
+<li><a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html#reproducibility">Reproducibility</a> of your project and be able to run the full analysis on a different dataset by changing a single line</li>
+<li><a href="https://mstamenk.github.io/2017/08/snakefile-syntax-file-for-vi-vim.html">Snakefile syntax file for vi/vim</a>.</li>
+</ul>
+<p>You can find a detailed tutorial for data analysts <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html">here</a>. </p>
+<h2>Conclusion</h2>
+<p>I hope this tutorial was useful, if you have any comments you can let me now: <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM" target="_blank">Twitter</a>. Thanks!</p>
             </section>
 
             <section class="post-info">

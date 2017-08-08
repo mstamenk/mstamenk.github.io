@@ -177,10 +177,19 @@
 <p>For this tutorial, we assume you'll be working from a shell terminal and you have some basic notions of bash, a running python environment and a basic c++ compiler with c++11, e.g. g++.</p>
 <p><a name="install"></a></p>
 <h2>Installation on Linux (MacOSX)</h2>
-<p>The easiest way to install Snakemake is via Conda. First make sure that you have the latest version of <a href="https://repo.continuum.io/miniconda/" target="_blank">Miniconda installed</a>. If you're working on Linux, run the following commands in the terminal:</p>
-<div class="highlight"><pre><span></span>wget <span class="s1">&#39;https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh&#39;</span>
-chmod +x Miniconda-latest-Linux-x86_64.sh
-./Miniconda-latest-Linux-x86_64.sh
+<p>The easiest way to install Snakemake is via Conda. First make sure that you have the latest version of <a href="https://repo.continuum.io/miniconda/" target="_blank">Miniconda installed</a>. </p>
+<p>If you're working on Linux, run the following commands in the terminal:</p>
+<div class="highlight"><pre><span></span>apt-get install wget
+wget <span class="s1">&#39;https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh&#39;</span>
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+</pre></div>
+
+
+<p>If you're on MacOS:</p>
+<div class="highlight"><pre><span></span>curl https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh &gt; Miniconda3-latest-MacOSX-x86_64.sh
+chmod +x Miniconda3-latest-MacOSX-x86_64.sh
+./Miniconda3-latest-MacOSX-x86_64.sh
 </pre></div>
 
 
@@ -192,7 +201,7 @@ conda install -n snake -c https://conda.anaconda.org/anaconda pytz
 </pre></div>
 
 
-<p>If everything went well, you should be able to activate and deactivate the Snakemake environment.</p>
+<p>If everything went well, you should be able to activate and deactivate the Snakemake environment</p>
 <div class="highlight"><pre><span></span><span class="nb">source</span> activate snake
 <span class="nb">source</span> deactivate
 </pre></div>
