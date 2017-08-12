@@ -162,8 +162,21 @@
 </ol>
 <h2>Credit</h2>
 <p>On the idea of <a href="http://pluca.webnode.com" target="_blank">Luca Pescatore</a><a href="" target="_blank"></a>, we used automated templates to handle the results of the analysis. The idea was to spare some time in the filling of Latex tables but also to be able to rerun the main results rapidly and present them in an efficient way. The main conception of the automation was provided by Luca and the credit goes to him for the class <code>Outfiles</code> used throughout the tutorial. </p>
+<h2>Index</h2>
+<ol>
+<li><a href="#requirement">Requirements</a></li>
+<li><a href="#install">Installation</a></li>
+<li><a href="#work">The working environment</a></li>
+<li><a href="#dict">Dictionaries (storage)</a></li>
+<li><a href="#tmp">Templates</a></li>
+<li><a href="#ex1">Examples: One template two text files</a></li>
+<li><a href="#ex2">Examples: Automated C++ headers containing namespaces</a></li>
+<li><a href="#ex3">Examples: Latex automated tables</a></li>
+</ol>
+<p><a name="requirement"></a></p>
 <h2>Requirements</h2>
 <p>This tutorial is meant to be used with python2. I assume you will be working from a shell terminal. I also expect you to be familiar with the basics of the bash language. </p>
+<p><a name="install"></a></p>
 <h2>Installation</h2>
 <p>To make this tutorial slightly more interesting, I prepared a github project you can download via:</p>
 <div class="highlight"><pre><span></span>git clone https://github.com/mstamenk/automated-templates.git
@@ -177,6 +190,7 @@
 
 
 <p>The last command will basically set the paths relative to the various folders in the tutorial so we can access them from any programming languages. It will also explicit the <code>$PYTHONPATH</code> so we can use modules and it will create two <code>alias</code>: <code>clean</code> and <code>db</code>. The first one is to remove the <code>.txt</code>, <code>.tex</code> and <code>.hpp</code> files we will produce and the second one will be detailed at the end of the tutorial. </p>
+<p><a name="work"></a></p>
 <h2>The working environment</h2>
 <p>The architecture of the working environment is as follows:</p>
 <div class="highlight"><pre><span></span><span class="c1"># Architecture of the project</span>
@@ -205,6 +219,7 @@
 <li><strong>Routines:</strong> if you already followed another tutorial on this site, you should be familiar with this part. I mainly use it to manage the project. This is the heart of the architecture and it contains the locations of all the folders, various class definitions and methods useful to manage the project. </li>
 </ol>
 <p>Let's now consider you produced various results in your analysis (this part is represented by the script <code>generate.py</code> in this tutorial). This tutorial is meant to show you how to store these results in a python <strong>dictionary</strong> format and then to use the dictionaries to fill <strong>templates</strong>. </p>
+<p><a name="dict"></a></p>
 <h2>Dictionaries</h2>
 <p>Storing python dictionaries is extremely easy thanks to the module <a href="https://docs.python.org/2/library/pickle.html" target="_blank"><strong>pickle</strong></a><a href="" target="_blank"></a>. In order to store a dictionary, we first need to define where to store it. </p>
 <p>In the <code>database</code> folder, create a file named <code>db.pkl</code> containing the following two lines:</p>
@@ -236,6 +251,7 @@
 
 
 <p>The last command will create a <code>database/foo.pkl</code> and add the <code>load</code> and <code>dump</code> lines in the <code>routines/Analysis.py</code>. You're welcome! </p>
+<p><a name="tmp"></a></p>
 <h2>Templates</h2>
 <p>Now that we know how to store some python dictionaries and use them in different scripts, we can try to fill templates. This is done through the class <code>Outfiles</code> defined in <code>routines/Analysis.py</code>. </p>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Outfiles</span><span class="p">:</span>
@@ -287,6 +303,7 @@
 <li>Fill various constants in a C++ header containing a namespace definition.</li>
 <li>Fill a Latex table automatically</li>
 </ol>
+<p><a name="ex1"></a></p>
 <h3>1. One template two text files</h3>
 <p>We first define a template we want to fill. </p>
 <div class="highlight"><pre><span></span># tables/templates/example1.tmp
@@ -335,6 +352,7 @@ This text is generated for the user {USER[NAME]} and his/her site is {USER[SITE]
 </ol>
 <p>It's important to notice that we never used the function <code>dump</code> to save the dictionary in the <code>database/db.pkl</code>. It means that once the script is done, there will be no trace of the entries we did in an external file and you will not be able to retrieve them. </p>
 <p>This simple example is meant to show you how easy it is to fill templates and create files from a python dictionary. Of course, let us now take a look at a more useful application to this automation. </p>
+<p><a name="ex2"></a></p>
 <h3>2. Automated C++ headers containing namespaces</h3>
 <p>As every good python programmer, you use C++ to perform the time-consuming operations involved in your analysis. Let's say that during your analysis, you compute some important values that you will use again. It's easy to imagine that these values are related to some kind of parameters you set at the beginning. If you change the starting parameters, you expect your important values to be updated in the C++ namespace that you use. The straightforward way is to do it manually of course. This is probably also the less clever way and subject to artificial mistakes. Let's automate it.</p>
 <div class="highlight"><pre><span></span><span class="c1">// tables/tempaltes/example2.tmp</span>
@@ -380,10 +398,11 @@ This text is generated for the user {USER[NAME]} and his/her site is {USER[SITE]
 <li>Fill the template every time you import the file <code>routines/Analysis.py</code> </li>
 <li>Force the compilation each and every time you use the C++ executable, this can be achieved by using some control interface like Snakemake (see the <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html" target="_blank">tutorial</a><a href="" target="_blank"></a>). </li>
 </ol>
+<p><a name="ex3"></a></p>
 <h3>3. Latex automated tables</h3>
 <p>The last example is meant to show you how to automatically fill Latex tables. This is my favourite way to use the automation. Filling data in tables is probably the most time-wasting step you have to do in an analysis. Especially when you changed some parameters and the values changed as well. </p>
 <p>The output of the example is a latex table where we compute 3 different exponents of a constant, i.e.<code>a=127</code>.  </p>
-<p><img alt="Example 3: Latex automated table" src="https://mstamenk.github.io/assets/images/LatexTable.pdf"></p>
+<p><img alt="Example 3: Latex automated table" src="https://mstamenk.github.io/assets/images/LatexTable.png"></p>
 <p>Let's look at the template:</p>
 <div class="highlight"><pre><span></span><span class="c">% tables/templates/example3.tmp</span>
 <span class="k">\begin</span><span class="nb">{{</span>table<span class="nb">}}</span>[h]
@@ -398,6 +417,36 @@ This text is generated for the user {USER[NAME]} and his/her site is {USER[SITE]
 <span class="k">\end</span><span class="nb">{{</span>center<span class="nb">}}</span>
 <span class="k">\end</span><span class="nb">{{</span>table<span class="nb">}}</span>
 </pre></div>
+
+
+<p>We just need to fill the script <code>generate.py</code></p>
+<div class="highlight"><pre><span></span><span class="c1"># generate.py</span>
+<span class="c1"># Example3 : Latex automated table</span>
+<span class="c1"># Solve y=f(x)=a ^ x for first, second and third order</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">127</span>
+
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">1</span>
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;second&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;third&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
+
+<span class="n">dump</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="s1">&#39;db.pkl&#39;</span><span class="p">)</span> 
+
+<span class="c1"># The next lines can be written in any other files since db is dumped</span>
+<span class="n">outfiles</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;Latex&#39;</span><span class="p">,</span><span class="s1">&#39;Latex&#39;</span><span class="p">,</span><span class="s1">&#39;.tex&#39;</span><span class="p">)</span>
+<span class="n">outfiles</span><span class="o">.</span><span class="n">fill_template</span><span class="p">(</span><span class="s1">&#39;Latex&#39;</span><span class="p">,</span><span class="s1">&#39;example3.tmp&#39;</span><span class="p">,</span><span class="n">db</span><span class="p">)</span>
+</pre></div>
+
+
+<p>That's it! Every time you compute your results in a python script, you are able to update them in the Latex tables without entering a single value manually! </p>
+<h2>Conclusion</h2>
+<p>The concept of <strong>Analysis Preservation</strong> is a very powerful tool. If done correctly, it will spare you tremendous amount of time. Remember, how you invest your time will determine the distance we have to run until the next scientific discovery or technological improvement! I hope you liked it, let me know via <a href="mailto:stamenkovim@gmail.com">stamenkovim@gmail.com</a> or <a href="https://twitter.com/StamenkM" target="_blank">Twitter</a>. Thank you!</p>
+<h2>See also the other tutorials</h2>
+<ul>
+<li><a href="https://mstamenk.github.io/pages/tutorials/" target="_blank">Full list of tutorials</a></li>
+</ul>
             </section>
 
             <section class="post-info">
