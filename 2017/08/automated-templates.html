@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Analysis preservation using automated templates</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="/" rel="canonical" />
+
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/github.css" rel="stylesheet">
+
+    <!-- CSS specified by the user -->
+
+
+    <link href="/assets/css/myblog.css" type="text/css" rel="stylesheet" />
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <link href="/2017/08/automated-templates.html" rel="canonical" />
+
+        <meta name="description" content="Motivation Analysis preservation is an important concept in data analyses. Its main advantages are: Keep track of your work and help you...">
+
+        <meta name="author" content="Marko">
+
+        <meta name="tags" content="Tutorials">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Marko Stamenkovic"/>
+<meta property="og:title" content="Analysis preservation using automated templates"/>
+<meta property="og:description" content="Motivation Analysis preservation is an important concept in data analyses. Its main advantages are: Keep track of your work and help you..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2017/08/automated-templates.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-08-09 15:25:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/marko">
+<meta property="article:section" content="misc"/>
+<meta property="article:tag" content="Tutorials"/>
+<meta property="og:image" content="/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StamenkM">
+    <meta name="twitter:title" content="Analysis preservation using automated templates">
+    <meta name="twitter:url" content="/2017/08/automated-templates.html">
+
+        <meta name="twitter:image:src" content="/theme/images/post-bg.jpg">
+
+      <meta name="twitter:description" content="Motivation Analysis preservation is an important concept in data analyses. Its main advantages are: Keep track of your work and help you...">
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Analysis preservation using automated templates",
+  "headline": "Analysis preservation using automated templates",
+  "datePublished": "2017-08-09 15:25:00+02:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Marko",
+    "url": "/author/marko"
+  },
+  "image": "/theme/images/post-bg.jpg",
+  "url": "/2017/08/automated-templates.html",
+  "description": "Motivation Analysis preservation is an important concept in data analyses. Its main advantages are: Keep track of your work and help you..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+              <li role="presentation"><a href="/pages/about-me/">About me</a></li>
+              <li role="presentation"><a href="/pages/contact-me/">Contact me</a></li>
+              <li role="presentation"><a href="/pages/tutorials/">Tutorials</a></li>
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Analysis preservation using automated templates</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/marko">Marko</a>
+            | <time datetime="09 Aug 2017">09 Aug 2017</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('/theme/images/post-bg.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <h2>Motivation</h2>
+<p>Analysis preservation is an important concept in data analyses. Its main advantages are:</p>
+<ul>
+<li>Keep track of your work and help you share it</li>
+<li>Spare you a consequent amount of time when it comes to redo a complete or partial analysis</li>
+<li>Reduce artificial mistakes inherent to the human condition of the data analyst</li>
+</ul>
+<p>The two first points were partially developed in the tutorial <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html" target="_blank">Analysis preservation using Snakemake</a>. The purpose of the present tutorial is to offer a solution to efficiently handle the results produced in your analysis. The main outcome is a working environment able to fill various templates in an automatic way. <a href="" target="_blank"></a></p>
+<p>In this tutorial, we will analyse three different examples:</p>
+<ol>
+<li>One template to produce different text files.</li>
+<li>Fill a C++ header file with a namespace containing various constants without your keyboard</li>
+<li>Fill a Latex table <strong>without</strong> a single number typed manually</li>
+</ol>
+<h2>Credit</h2>
+<p>On the idea of <a href="http://pluca.webnode.com" target="_blank">Luca Pescatore</a><a href="" target="_blank"></a>, we used automated templates to handle the results of the analysis. The idea was to spare some time in the filling of Latex tables but also to be able to rerun the main results rapidly and present them in an efficient way. The main conception of the automation was provided by Luca and the credit goes to him for the class <code>Outfiles</code> used throughout the tutorial. </p>
+<h2>Requirements</h2>
+<p>This tutorial is meant to be used with python2. I assume you will be working from a shell terminal. I also expect you to be familiar with the basics of the bash language. </p>
+<h2>Installation</h2>
+<p>To make this tutorial slightly more interesting, I prepared a github project you can download via:</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/mstamenk/automated-templates.git
+</pre></div>
+
+
+<p>Once the repertory downloaded, go into the root and source the shell script <code>setup.sh</code> the environment.</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> automated-templates/
+<span class="nb">source</span> setup.sh
+</pre></div>
+
+
+<p>The last command will basically set the paths relative to the various folders in the tutorial so we can access them from any programming languages. It will also explicit the <code>$PYTHONPATH</code> so we can use modules and it will create two <code>alias</code>: <code>clean</code> and <code>db</code>. The first one is to remove the <code>.txt</code>, <code>.tex</code> and <code>.hpp</code> files we will produce and the second one will be detailed at the end of the tutorial. </p>
+<h2>The working environment</h2>
+<p>The architecture of the working environment is as follows:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Architecture of the project</span>
+<span class="p">|</span>--automated-templates
+            <span class="p">|</span>--setup.sh                     <span class="c1"># Set the environment</span>
+            <span class="p">|</span>--generate.py                  <span class="c1"># Fill the dict.</span>
+            <span class="p">|</span>--process.py                   <span class="c1"># Fill templates</span>
+            <span class="p">|</span>--database                     <span class="c1"># Store dict.</span>
+                    <span class="p">|</span>--outfiles_list.txt    <span class="c1"># Dict. list</span>
+                    <span class="p">|</span>--db.pkl               <span class="c1"># Database dict.</span>
+            <span class="p">|</span>--routines                     
+                    <span class="p">|</span>--Analysis.py          <span class="c1"># Project management</span>
+                    <span class="p">|</span>--create_db.py         <span class="c1"># Create and store dict.</span>
+            <span class="p">|</span>--tables                       <span class="c1"># Store final outputs</span>
+                    <span class="p">|</span>--templates
+                            <span class="p">|</span>--exmaple1.tmp <span class="c1"># Various templates</span>
+                            <span class="p">|</span>--exmaple2.tmp
+                            <span class="p">|</span>--exmaple3.tmp
+</pre></div>
+
+
+<p>The environment is separated into three main parts:</p>
+<ol>
+<li><strong>Database:</strong> the point is to store the results produced in the analysis and I choose to use the very friendly python dictionary, abbreviated <code>dict</code> with the extension <code>.pkl</code>.</li>
+<li><strong>Tables - Templates:</strong> the purpose is to store the templates (extension <code>.tmp</code> and the various output of these templates, in this tutorial mainly and the various output of these templates, in this tutorial mainly <code>.txt</code>, <code>.hpp</code> and <code>.tex</code> extensions. </li>
+<li><strong>Routines:</strong> if you already followed another tutorial on this site, you should be familiar with this part. I mainly use it to manage the project. This is the heart of the architecture and it contains the locations of all the folders, various class definitions and methods useful to manage the project. </li>
+</ol>
+<p>Let's now consider you produced various results in your analysis (this part is represented by the script <code>generate.py</code> in this tutorial). This tutorial is meant to show you how to store these results in a python <strong>dictionary</strong> format and then to use the dictionaries to fill <strong>templates</strong>. </p>
+<h2>Dictionaries</h2>
+<p>Storing python dictionaries is extremely easy thanks to the module <a href="https://docs.python.org/2/library/pickle.html" target="_blank"><strong>pickle</strong></a><a href="" target="_blank"></a>. In order to store a dictionary, we first need to define where to store it. </p>
+<p>In the <code>database</code> folder, create a file named <code>db.pkl</code> containing the following two lines:</p>
+<div class="highlight"><pre><span></span><span class="c1"># database/db.pkl</span>
+<span class="o">(</span>dp0
+.
+</pre></div>
+
+
+<p>This file will gently be interpreted by the <code>pickle</code> module as a python dictionary and the module will handle the writing and reading. We will just handle the python format which we are familiar with. In this tutorial, every definitions happen in the <code>routines/Analysis.py</code> folder. We need the following lines:</p>
+<div class="highlight"><pre><span></span><span class="c1"># routines/Analysis.py</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">DATABASE</span><span class="o">+</span><span class="s1">&#39;db.pkl&#39;</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="n">dataB</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dataB</span><span class="p">,</span><span class="nb">open</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">DATABASE</span><span class="o">+</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">dumpAll</span><span class="p">():</span>
+    <span class="n">dump</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="s1">&#39;db.pkl&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>That's it! The <code>db</code> object is now an empty python dictionary where you can store informations and keep them even when your script is finished. Your results can now be saved in an external file. In these few lines, the variable <code>loc</code> contains the absolute path to the different folders of the tutorial and we define a function <code>dump</code> that will store the modifications of the dictionary. If you want to retrieve your modifications, you should call this function at the end of your scripts producing results. </p>
+<h3>Simplify the creation of a stored dictionary</h3>
+<p>In a single analysis, you might want to create multiple dictionaries and store them in an external file. This is the purpose of the python script <code>routines/create_db.py</code> which creates a file and adds the corresponding lines in the downloaded <code>routines/Analysis.py</code>. It's important to note that the script uses some flags specified as comments in the <code>routines/Analysis.py</code>, it won't work if you modify the flags. Anyway, I also specified an alias in the <code>setup.sh</code>, so once you have sourced the bash script and set up the environment, you should be able to create new stored dictionaries directly from the command line. </p>
+<div class="highlight"><pre><span></span>db foo
+</pre></div>
+
+
+<p>The last command will create a <code>database/foo.pkl</code> and add the <code>load</code> and <code>dump</code> lines in the <code>routines/Analysis.py</code>. You're welcome! </p>
+<h2>Templates</h2>
+<p>Now that we know how to store some python dictionaries and use them in different scripts, we can try to fill templates. This is done through the class <code>Outfiles</code> defined in <code>routines/Analysis.py</code>. </p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Outfiles</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">DATABASE</span><span class="o">+</span><span class="s1">&#39;outfiles_list.txt&#39;</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">DATABASE</span><span class="o">+</span><span class="s1">&#39;outfiles_list.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">DATABASE</span><span class="o">+</span><span class="s1">&#39;outfiles_list.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span> <span class="p">:</span>
+            <span class="n">toks</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">toks</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">toks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">writeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">text</span><span class="p">,</span><span class="n">clear</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">text</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">clear</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">text</span><span class="p">,</span><span class="n">clear</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">clear</span> <span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">name</span><span class="p">],</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">name</span><span class="p">],</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">fill_template</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">template</span><span class="p">,</span><span class="n">dic</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">TEMPLATES</span><span class="o">+</span><span class="n">template</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">dic</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">out</span><span class="p">,</span><span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">extension</span><span class="o">=</span><span class="s2">&quot;.txt&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filename</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="s2">&quot;.&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">filename</span> <span class="p">:</span> <span class="n">filename</span> <span class="o">+=</span> <span class="n">extension</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">TABLES</span> <span class="o">+</span> <span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">path</span>
+
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">DATABASE</span><span class="o">+</span><span class="s1">&#39;outfiles_list.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()</span> <span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">outfiles</span> <span class="o">=</span> <span class="n">Outfiles</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Without going into details, the two functions you need are <code>create</code> and <code>fill_template</code>. The first one basically creates the output file, which can be a file of any format, and links it to a name (to simplify the use in python). The second, takes the output file and write the filled version of a template you specified earlier. In order to simplify the use of this class, I create a <code>outfiles</code> variable I can import in other python files. </p>
+<h2>Examples</h2>
+<p>Let's illustrate this powerful tool through 3 examples:</p>
+<ol>
+<li>Create a single template to fill two different text files.</li>
+<li>Fill various constants in a C++ header containing a namespace definition.</li>
+<li>Fill a Latex table automatically</li>
+</ol>
+<h3>1. One template two text files</h3>
+<p>We first define a template we want to fill. </p>
+<div class="highlight"><pre><span></span># tables/templates/example1.tmp
+This text is generated for the user {USER[NAME]} and his/her site is {USER[SITE]}.
+</pre></div>
+
+
+<p>This template requires a dictionary containing a key <code>USER</code> which is also a dictionary. In the file <code>generate.py</code>, we define and fill the different files. </p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">routines.Analysis</span> <span class="kn">import</span> <span class="n">loc</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">dump</span><span class="p">,</span> <span class="n">outfiles</span> 
+
+<span class="c1"># Example 1 : Fill 2 text files with one template.</span>
+<span class="c1"># Template requirement: {USER[NAME]} and {USER[SITE]}</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Luca&#39;</span>  <span class="p">:</span> <span class="s1">&#39;http://pluca.webnode.com/&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;Marko&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://mstamenk.github.io&#39;</span><span class="p">,</span>
+          <span class="c1"># Fill here for your personal informations</span>
+        <span class="p">}</span>
+
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;USER&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="p">{</span> <span class="s1">&#39;NAME&#39;</span> <span class="p">:</span> <span class="s1">&#39;Luca&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;SITE&#39;</span> <span class="p">:</span> <span class="n">users</span><span class="p">[</span><span class="s1">&#39;Luca&#39;</span><span class="p">]}</span>
+
+<span class="n">outfiles</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;Luca&#39;</span><span class="p">,</span><span class="s1">&#39;Luca&#39;</span><span class="p">,</span><span class="s1">&#39;.txt&#39;</span><span class="p">)</span>
+<span class="n">outfiles</span><span class="o">.</span><span class="n">fill_template</span><span class="p">(</span><span class="s1">&#39;Luca&#39;</span><span class="p">,</span><span class="s1">&#39;example1.tmp&#39;</span><span class="p">,</span><span class="n">db</span><span class="p">)</span>
+
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;USER&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="p">{</span> <span class="s1">&#39;NAME&#39;</span> <span class="p">:</span> <span class="s1">&#39;Marko&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;SITE&#39;</span> <span class="p">:</span> <span class="n">users</span><span class="p">[</span><span class="s1">&#39;Marko&#39;</span><span class="p">]}</span>
+
+
+<span class="n">outfiles</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;Marko&#39;</span><span class="p">,</span><span class="s1">&#39;Marko&#39;</span><span class="p">,</span><span class="s1">&#39;.txt&#39;</span><span class="p">)</span>
+<span class="n">outfiles</span><span class="o">.</span><span class="n">fill_template</span><span class="p">(</span><span class="s1">&#39;Marko&#39;</span><span class="p">,</span><span class="s1">&#39;example1.tmp&#39;</span><span class="p">,</span><span class="n">db</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Now by running the command from the root directory (be sure to use python2):</p>
+<div class="highlight"><pre><span></span>python generate.py
+</pre></div>
+
+
+<ol>
+<li>We import the various variables we need from the <code>routines/Analysis.py</code> file</li>
+<li>In the database <code>db</code> variable, we assign the values that will be fetched in the template</li>
+<li>We create an output file, i.e. <code>tables/Luca.txt</code> linked to the name <code>Luca</code> in the <code>database/outfiles_list.txt</code>. </li>
+<li>We fill the file <code>Luca.txt</code> with freshly updated dictionary <code>db</code> passed to the template <code>tables/templates/example1.tmp</code>. </li>
+<li>We repeat the same procedure but create a file <code>Marko.txt</code> using the exact same template.</li>
+<li>The files <code>tables/Luca.txt</code> and <code>tables/Marko.txt</code> are now filled following the template <code>tables/templates/example1.tmp</code>.</li>
+</ol>
+<p>It's important to notice that we never used the function <code>dump</code> to save the dictionary in the <code>database/db.pkl</code>. It means that once the script is done, there will be no trace of the entries we did in an external file and you will not be able to retrieve them. </p>
+<p>This simple example is meant to show you how easy it is to fill templates and create files from a python dictionary. Of course, let us now take a look at a more useful application to this automation. </p>
+<h3>2. Automated C++ headers containing namespaces</h3>
+<p>As every good python programmer, you use C++ to perform the time-consuming operations involved in your analysis. Let's say that during your analysis, you compute some important values that you will use again. It's easy to imagine that these values are related to some kind of parameters you set at the beginning. If you change the starting parameters, you expect your important values to be updated in the C++ namespace that you use. The straightforward way is to do it manually of course. This is probably also the less clever way and subject to artificial mistakes. Let's automate it.</p>
+<div class="highlight"><pre><span></span><span class="c1">// tables/tempaltes/example2.tmp</span>
+<span class="cp">#ifndef ANALYSIS_H</span>
+<span class="cp">#define ANALYSIS_H</span>
+
+<span class="k">namespace</span> <span class="n">Analysis</span> <span class="p">{{</span>
+
+    <span class="kt">double</span> <span class="n">g</span><span class="p">({</span><span class="n">GRAVITY</span><span class="p">});</span>
+    <span class="kt">double</span> <span class="nf">m</span><span class="p">({</span><span class="n">MASS</span><span class="p">});</span>
+    <span class="kt">double</span> <span class="nf">h</span><span class="p">({</span><span class="n">HEIGHT</span><span class="p">});</span>
+
+    <span class="kt">double</span> <span class="nf">Epot</span><span class="p">({</span><span class="n">POTENTIAL</span><span class="p">});</span>
+
+<span class="p">}}</span>
+
+
+<span class="cp">#endif</span>
+</pre></div>
+
+
+<p>The template <code>tables/templates/example2.tmp</code> contains the code for a heading with a namespace in it where we can define the important values. Please notice that the python formatting language requires curly brackets to access to the dictionaries, for this reason, if the source code you are writing requires brackets, you need to double them. This is particularly annoying in Latex, but we'll come to that later. The next step is to fill the dictionaries in python. </p>
+<div class="highlight"><pre><span></span><span class="c1"># Example2 : C++ namespace </span>
+<span class="c1"># In this script, only fill the db dictionary and save it to use later</span>
+
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;GRAVITY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># [m s^-2]</span>
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;MASS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">80</span>       <span class="c1"># [kg]</span>
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;HEIGHT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>     <span class="c1"># [m]</span>
+
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;POTENTIAL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;MASS&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;GRAVITY&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;HEIGHT&#39;</span><span class="p">]</span> <span class="c1"># Epot = m*g*h</span>
+
+<span class="n">dump</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="s1">&#39;db.pkl&#39;</span><span class="p">)</span>
+
+<span class="c1"># The next lines can be written in any other files since db is dumped</span>
+<span class="n">outfiles</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;Analysis&#39;</span><span class="p">,</span><span class="s1">&#39;Analysis&#39;</span><span class="p">,</span><span class="s1">&#39;.hpp&#39;</span><span class="p">)</span>
+<span class="n">outfiles</span><span class="o">.</span><span class="n">fill_template</span><span class="p">(</span><span class="s1">&#39;Analysis&#39;</span><span class="p">,</span><span class="s1">&#39;example2.tmp&#39;</span><span class="p">,</span><span class="n">db</span><span class="p">)</span>
+</pre></div>
+
+
+<p>I don't think details are required here, the code is very simple to understand. Now the file <code>tables/Analysis.hpp</code> is fully functional and can be included in any C++ script. </p>
+<p>A specific attention here is required because a C++ executable is a compiled object. Changing the header <code>Analysis.hpp</code> requires a new compilation. If you want to make it automatic, you can use the following two steps:</p>
+<ol>
+<li>Fill the template every time you import the file <code>routines/Analysis.py</code> </li>
+<li>Force the compilation each and every time you use the C++ executable, this can be achieved by using some control interface like Snakemake (see the <a href="https://mstamenk.github.io/2017/08/snakemake-tutorial-for-data-analysts.html" target="_blank">tutorial</a><a href="" target="_blank"></a>). </li>
+</ol>
+<h3>3. Latex automated tables</h3>
+<p>The last example is meant to show you how to automatically fill Latex tables. This is my favourite way to use the automation. Filling data in tables is probably the most time-wasting step you have to do in an analysis. Especially when you changed some parameters and the values changed as well. </p>
+<p>Let's look at the template:</p>
+<div class="highlight"><pre><span></span><span class="c">% tables/templates/example3.tmp</span>
+<span class="k">\begin</span><span class="nb">{{</span>table<span class="nb">}}</span>[h]
+<span class="k">\begin</span><span class="nb">{{</span>center<span class="nb">}}</span>
+    <span class="k">\begin</span><span class="nb">{{</span>tabular<span class="nb">}}{{</span>c|ccc<span class="nb">}}</span>
+     Order       <span class="nb">&amp;</span> Linear  <span class="nb">&amp;</span> Square   <span class="nb">&amp;</span> Cubic     <span class="k">\\</span>
+            <span class="k">\hline</span>
+     Function    <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">{a}^</span><span class="m">1</span><span class="s">$</span> <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">{a}^</span><span class="m">2</span><span class="s">$</span>  <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">{a}^</span><span class="m">3</span><span class="s">$</span>   <span class="k">\\</span>
+     Value       <span class="nb">&amp;</span> <span class="nb">{</span>first<span class="nb">}</span> <span class="nb">&amp;</span> <span class="nb">{</span>second<span class="nb">}</span> <span class="nb">&amp;</span> <span class="nb">{</span>third<span class="nb">}</span>   <span class="k">\\</span>
+            <span class="k">\hline</span>
+    <span class="k">\end</span><span class="nb">{{</span>tabular<span class="nb">}}</span>
+<span class="k">\end</span><span class="nb">{{</span>center<span class="nb">}}</span>
+<span class="k">\end</span><span class="nb">{{</span>table<span class="nb">}}</span>
+</pre></div>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Analysis preservation using automated templates&amp;url=/2017/08/automated-templates.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2017/08/automated-templates.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/2017/08/automated-templates.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/tutorials">Tutorials</a>                </aside>
+
+                <div class="clear"></div>
+
+                <aside class="post-author">
+
+
+                        <figure class="post-author-avatar">
+                            <img src="/assets/images/Profile.JPG" alt="Marko" />
+                        </figure>
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="/author/marko">Marko</a></h4>
+                            <p class="post-author-about">Swiss particle physicist, I am currently a PhD student within the ATLAS collaboration (CERN) and I am based at Nikhef, Amsterdam, Netherlands. Enjoy my blog!</p>
+                            <span class="post-author-location"><i class="ic ic-location"></i> Lausanne, Switzerland</span>
+                            <span class="post-author-website"><a href="http://mstamenk.github.io"><i class="ic ic-link"></i> Website</a></span>
+                            <span class="post-author-twitter"><a target="_blank" href="https://twitter.com/StamenkM"><i class="ic ic-twitter"></i> Twitter</a></span>
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-prev" href="/2017/08/snakemake-in-less-than-5.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">Snakemake: my first workflow in less than 5 minutes</h2>
+                            <p class="post-nav-excerpt">This tutorial is a shorter version of Analysis preservation using Snakemake. It...</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-103991222-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

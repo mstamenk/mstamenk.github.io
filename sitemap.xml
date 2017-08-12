@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2017-08-08T16:47:27-00:00</lastmod>
+<lastmod>2017-08-12T15:47:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2017-08-08T16:47:27-00:00</lastmod>
+<lastmod>2017-08-12T15:47:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2017-08-08T16:47:27-00:00</lastmod>
+<lastmod>2017-08-12T15:47:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -41,6 +41,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/pages/tutorials/</loc>
 <lastmod>2017-08-04T08:50:25+02:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/2017/08/automated-templates.html</loc>
+<lastmod>2017-08-09T15:25:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -75,21 +82,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/misc</loc>
-<lastmod>2017-08-03T09:23:00+00:09</lastmod>
+<lastmod>2017-08-09T15:25:00+00:09</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/tutorials</loc>
-<lastmod>2017-08-03T09:23:00+00:09</lastmod>
+<lastmod>2017-08-09T15:25:00+00:09</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/author/marko</loc>
-<lastmod>2017-08-03T09:23:00+00:09</lastmod>
+<lastmod>2017-08-09T15:25:00+00:09</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
