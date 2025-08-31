@@ -39,6 +39,7 @@
     .brand{font-weight:800;letter-spacing:.1px;color:var(--ink)}
     .nav a{color:var(--ink)}
     .nav a:hover{color:var(--brand)}
+    .links{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
     main{padding:18px 0 80px}
     .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;margin-top:10px}
     @media (max-width:900px){.hero{grid-template-columns:1fr}}
@@ -72,11 +73,11 @@
     .timeline .item{position:relative;padding-left:14px;margin:12px 0}
     .timeline .item::before{content:"";position:absolute;left:-10px;top:10px;width:10px;height:10px;background:#111;border-radius:50%}
     .timeline .item .when{display:inline-block;margin-left:.6ch;color:var(--muted)}
-          /* publications: thumbnails */
-    .pub-list{margin:0;padding:0;list-style:none;display:grid;gap:14px}
-    .pub-list li{display:grid;grid-template-columns:minmax(180px,28%) 1fr;gap:16px;align-items:start;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:transparent}
-    .pub-thumb{width:100%;height:clamp(130px,18vw,180px);border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#f6f7f9}
-    @media (max-width:760px){.pub-list li{grid-template-columns:1fr}.pub-thumb{height:clamp(160px,45vw,240px)}}
+              /* publications: thumbnails */
+    .pub-list{margin:0;padding:0;list-style:none;display:grid;gap:18px}
+    .pub-list li{display:grid;grid-template-columns:minmax(320px,48%) 1fr;gap:18px;align-items:start;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:transparent}
+    .pub-thumb{width:100%;height:clamp(220px,28vw,360px);border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#f6f7f9}
+    @media (max-width:760px){.pub-list li{grid-template-columns:1fr}.pub-thumb{height:clamp(220px,60vw,380px)}}
   </style>
   <script type="application/ld+json" id="jsonld">
   {
@@ -212,10 +213,7 @@
         <p>Email: <a href="mailto:marko.stamenkovic@cern.ch">marko.stamenkovic@cern.ch</a>  •  <a href="mailto:Marko_Stamenkovic@brown.edu">Marko_Stamenkovic@brown.edu</a></p>
         <p>Social: <a href="https://x.com/stamenkm" target="_blank" rel="noopener">X/Twitter</a> · <a href="https://github.com/mstamenk" target="_blank" rel="noopener">GitHub</a> · <a href="https://inspirehep.net/authors/1623795" target="_blank" rel="noopener">InspireHEP</a></p>
       </div>
-      <aside class="card">
-        <p class="kicker">For recruiters</p>
-        <p>Short bio, research statement, and selected results are summarized above. A printable CV is linked at the top. JSON‑LD <em>Person</em> metadata is included for better discoverability.</p>
-      </aside>
+      
     </section>
   </main>
 
