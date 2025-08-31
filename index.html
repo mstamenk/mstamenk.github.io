@@ -72,11 +72,11 @@
     .timeline .item{position:relative;padding-left:14px;margin:12px 0}
     .timeline .item::before{content:"";position:absolute;left:-10px;top:10px;width:10px;height:10px;background:#111;border-radius:50%}
     .timeline .item .when{display:inline-block;margin-left:.6ch;color:var(--muted)}
-      /* publications: thumbnails */
-    .pub-list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
-    .pub-list li{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:transparent}
-    .pub-thumb{width:72px;height:72px;border-radius:8px;object-fit:cover;border:1px solid var(--line);background:#f6f7f9}
-    @media (max-width:520px){.pub-list li{grid-template-columns:60px 1fr}.pub-thumb{width:60px;height:60px}}
+          /* publications: thumbnails */
+    .pub-list{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+    .pub-list li{display:grid;grid-template-columns:minmax(180px,28%) 1fr;gap:16px;align-items:start;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:transparent}
+    .pub-thumb{width:100%;height:clamp(130px,18vw,180px);border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#f6f7f9}
+    @media (max-width:760px){.pub-list li{grid-template-columns:1fr}.pub-thumb{height:clamp(160px,45vw,240px)}}
   </style>
   <script type="application/ld+json" id="jsonld">
   {
