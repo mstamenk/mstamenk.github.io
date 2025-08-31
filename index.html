@@ -72,6 +72,11 @@
     .timeline .item{position:relative;padding-left:14px;margin:12px 0}
     .timeline .item::before{content:"";position:absolute;left:-10px;top:10px;width:10px;height:10px;background:#111;border-radius:50%}
     .timeline .item .when{display:inline-block;margin-left:.6ch;color:var(--muted)}
+      /* publications: thumbnails */
+    .pub-list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+    .pub-list li{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:transparent}
+    .pub-thumb{width:72px;height:72px;border-radius:8px;object-fit:cover;border:1px solid var(--line);background:#f6f7f9}
+    @media (max-width:520px){.pub-list li{grid-template-columns:60px 1fr}.pub-thumb{width:60px;height:60px}}
   </style>
   <script type="application/ld+json" id="jsonld">
   {
@@ -145,12 +150,37 @@
     <section id="pubs" class="two">
       <div>
         <h2>Selected publications</h2>
-        <ol class="list">
-          <li><strong>Triple‑Higgs (HHH) Whitepaper</strong> — EPJ C (2024). <a href="https://arxiv.org/abs/2407.03015" target="_blank" rel="noopener">arXiv:2407.03015</a></li>
-          <li><strong>Development of the CMS detector for LHC Run 3</strong> — JINST 19 (2024) P05064. <a href="https://iopscience.iop.org/article/10.1088/1748-0221/19/05/P05064" target="_blank" rel="noopener">Journal</a></li>
-          <li><strong>Enriching the CMS program via data scouting & parking</strong> — <a href="https://arxiv.org/abs/2403.16134" target="_blank" rel="noopener">arXiv:2403.16134</a></li>
-          <li><strong>A detailed map of Higgs interactions</strong> — <em>Nature</em> 607 (2022) 52–59. <a href="https://www.nature.com/articles/s41586-022-04893-w" target="_blank" rel="noopener">Article</a></li>
-          <li><strong>Reconstruction of multi‑Higgs final states with symmetry‑preserving attention</strong> — preprint.</li>
+        <ol class="pub-list">
+          <li>
+            <img class="pub-thumb" src="assets/pubs/hhh-whitepaper.png" alt="Plot for Triple‑Higgs whitepaper" loading="lazy" onerror="this.style.opacity=.25">
+            <div>
+              <strong>Triple‑Higgs (HHH) Whitepaper</strong> — EPJ C (2024). <a href="https://arxiv.org/abs/2407.03015" target="_blank" rel="noopener">arXiv:2407.03015</a>
+            </div>
+          </li>
+          <li>
+            <img class="pub-thumb" src="assets/pubs/cms-run3-jinst.png" alt="Plot for CMS Run‑3 JINST" loading="lazy" onerror="this.style.opacity=.25">
+            <div>
+              <strong>Development of the CMS detector for LHC Run 3</strong> — JINST 19 (2024) P05064. <a href="https://iopscience.iop.org/article/10.1088/1748-0221/19/05/P05064" target="_blank" rel="noopener">Journal</a>
+            </div>
+          </li>
+          <li>
+            <img class="pub-thumb" src="assets/pubs/scouting-parking.png" alt="Plot for scouting & parking" loading="lazy" onerror="this.style.opacity=.25">
+            <div>
+              <strong>Enriching the CMS program via data scouting & parking</strong> — <a href="https://arxiv.org/abs/2403.16134" target="_blank" rel="noopener">arXiv:2403.16134</a>
+            </div>
+          </li>
+          <li>
+            <img class="pub-thumb" src="assets/pubs/higgs-map-nature.png" alt="Plot for Nature Higgs interactions" loading="lazy" onerror="this.style.opacity=.25">
+            <div>
+              <strong>A detailed map of Higgs interactions</strong> — <em>Nature</em> 607 (2022) 52–59. <a href="https://www.nature.com/articles/s41586-022-04893-w" target="_blank" rel="noopener">Article</a>
+            </div>
+          </li>
+          <li>
+            <img class="pub-thumb" src="assets/pubs/spanet-multih.png" alt="Plot for SPA‑Net multi‑Higgs" loading="lazy" onerror="this.style.opacity=.25">
+            <div>
+              <strong>Reconstruction of multi‑Higgs final states with symmetry‑preserving attention</strong> — preprint.
+            </div>
+          </li>
         </ol>
         <p class="note">Full list on <a href="https://inspirehep.net/authors/1623795" target="_blank" rel="noopener">InspireHEP</a>.</p>
       </div>
