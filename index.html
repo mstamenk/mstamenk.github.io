@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marko Stamenkovic — Particle Physicist</title>
+  <meta name="description" content="Marko Stamenkovic — particle physicist at Brown University with the CMS experiment. Research: Higgs self-coupling (HH, HHH), jet-charge tagging, ML for HEP, triggers for HL-LHC." />
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Marko Stamenkovic — Particle Physicist" />
+  <meta property="og:description" content="Higgs self-coupling (HH, HHH) • Jet‑charge tagging • ML for HEP • CMS @ LHC" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mstamenk.github.io/" />
+  <style>
+    :root{
+      --bg: #0b0d12;           /* dark slate */
+      --fg: #e7e9ee;           /* soft white */
+      --muted:#b5bdc9;         /* muted text */
+      --brand:#4aa3ff;         /* accent */
+      --card:#141821;          /* card bg */
+      --line:#232838;          /* subtle borders */
+      --ok:#30c48d;            /* success accent */
+      --warn:#ffb454;          /* warm accent */
+      --shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f9fbff; --fg:#111319; --muted:#5b6373; --brand:#2459e0; --card:#ffffff; --line:#e8ecf3;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; background:var(--bg); color:var(--fg)}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1050px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(8px);background:color-mix(in oklab, var(--bg) 88%, transparent);border-bottom:1px solid var(--line);z-index:10}
+    .nav{display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .nav .left{display:flex;gap:16px;align-items:center}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .pill{display:inline-flex;align-items:center;gap:.5ch;padding:.45rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+    .pill svg{width:18px;height:18px;opacity:.8}
+    .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    main{padding:10px 0 80px}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;margin-top:28px}
+    .title{font-size:clamp(1.8rem,2.6vw,2.4rem);line-height:1.2;margin:0 0 6px}
+    .subtitle{margin:0 0 14px;color:var(--muted)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+    .badge{padding:.35rem .65rem;border:1px solid var(--line);border-radius:10px;background:var(--card);font-size:.92rem}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .btn{display:inline-flex;align-items:center;gap:.6ch;padding:.7rem .95rem;border-radius:12px;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow)}
+    .btn.primary{background:linear-gradient(180deg,color-mix(in oklab,var(--brand),white 15%), color-mix(in oklab,var(--brand),black 8%));color:white;border-color:transparent}
+    .btn:hover{transform:translateY(-1px)}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:1fr}.grid.cols-2{grid-template-columns:1fr}}
+    section{margin:42px 0}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px;font-size:1.15rem}
+    .card p{margin:0;color:var(--muted)}
+    .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;margin:0 0 8px}
+    .list{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+    .list li{padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+    .list small{color:var(--muted)}
+    .two{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    @media (max-width:900px){.two{grid-template-columns:1fr}}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted)}
+    .muted{color:var(--muted)}
+    .tag{display:inline-block;border:1px solid var(--line);padding:.15rem .5rem;border-radius:999px;margin-left:.6ch;font-size:.8rem;color:var(--muted)}
+    .timeline{position:relative;padding-left:22px}
+    .timeline:before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--line)}
+    .timeline .item{position:relative;padding-left:14px;margin:12px 0}
+    .timeline .item::before{content:"";position:absolute;left:-10px;top:10px;width:10px;height:10px;background:var(--brand);border-radius:50%}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .note{font-size:.95rem;color:var(--muted)}
+  </style>
+  <script type="application/ld+json" id="jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Marko Stamenkovic",
+    "jobTitle": "Postdoctoral Research Associate",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Brown University"
+    },
+    "worksFor": {"@type":"Organization","name":"CMS Experiment (CERN)"},
+    "url": "https://mstamenk.github.io/",
+    "sameAs": [
+      "https://github.com/mstamenk",
+      "https://x.com/stamenkm",
+      "https://inspirehep.net/authors/1623795",
+      "https://physics.brown.edu/people/postdoctoral-research-associates"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Primary">
+      <div class="left">
+        <span class="brand">Marko Stamenkovic</span>
+        <span class="pill" title="Research areas">
+          <!-- atom icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="4"></ellipse><ellipse cx="12" cy="12" rx="4" ry="10" transform="rotate(60 12 12)"></ellipse><ellipse cx="12" cy="12" rx="4" ry="10" transform="rotate(120 12 12)"></ellipse><circle cx="12" cy="12" r="1.6" /></svg>
+          Particle physicist
+        </span>
+      </div>
+      <nav class="links">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#media">Media</a>
+        <a href="#talks">Talks</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1 class="title">Higgs self‑coupling • Jet‑charge tagging • ML for HEP</h1>
+        <p class="subtitle">Postdoc at Brown University with the <strong>CMS experiment</strong>. I work on <em>HH</em> and <em>HHH</em> searches, charge‑aware heavy‑flavor tagging, and trigger strategies for the HL‑LHC.</p>
+        <div class="badges">
+          <span class="badge">HH & HHH analyses</span>
+          <span class="badge">Particle reconstruction (SPANet)</span>
+          <span class="badge">Trigger & L1/HLT</span>
+          <span class="badge">Open science & analysis preservation</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="mailto:marko.stamenkovic@cern.ch" aria-label="Email">✉️ Email</a>
+          <a class="btn" href="https://inspirehep.net/authors/1623795" target="_blank" rel="noopener">InspireHEP</a>
+          <a class="btn" href="https://github.com/mstamenk" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://x.com/stamenkm" target="_blank" rel="noopener">X / Twitter</a>
+          <a class="btn" href="#cv" onclick="alert('Add cv.pdf to the repo and point this button to it.');return false;">Download CV</a>
+        </div>
+      </div>
+      <div class="card">
+        <p class="kicker">At a glance</p>
+        <ul class="list">
+          <li><strong>Affiliation:</strong> Brown University • CMS (CERN)</li>
+          <li><strong>Focus:</strong> Higgs self‑interactions; HH/HHH in heavy‑flavor final states</li>
+          <li><strong>Methods:</strong> ML for reconstruction & tagging; real‑time triggers</li>
+          <li><strong>Interests:</strong> Charge‑aware jet tagging; inclusive boosted↔resolved reconstruction</li>
+        </ul>
+        <p class="note">For a detailed publication list, see InspireHEP. Selected items are below.</p>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research highlights</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Higgs self‑coupling (HH, HHH)</h3>
+          <p>Searches for <em>HH</em> and <em>HHH</em> with b‑jets and τ leptons; sensitivity and reconstruction studies spanning resolved, semi‑boosted, and boosted topologies.</p>
+        </article>
+        <article class="card">
+          <h3>Jet‑charge tagging</h3>
+          <p>Developing charge‑aware heavy‑flavor tagging to lift combinatorics and strengthen measurements and searches in heavy‑flavor final states.</p>
+        </article>
+        <article class="card">
+          <h3>Particle reconstruction with transformers</h3>
+          <p>Generalized SPA‑Net for simultaneous boosted/resolved reconstruction and unambiguous interpretation across topologies.</p>
+        </article>
+        <article class="card">
+          <h3>Trigger strategies for rare signals</h3>
+          <p>Parking and b‑tag triggers enabling access to previously unreachable phase space in Run‑3 and toward HL‑LHC.</p>
+        </article>
+        <article class="card">
+          <h3>Open analysis & reproducibility</h3>
+          <p>Workflow design and analysis preservation (Snakemake, containers) for robust, repeatable results.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications" class="two">
+      <div>
+        <h2>Selected publications & notes</h2>
+        <ul class="list">
+          <li>
+            <strong>HHH Whitepaper</strong> <span class="tag">editor</span><br/>
+            <small>EPJ C (2024) — community whitepaper on triple‑Higgs physics. <a href="https://arxiv.org/abs/2407.03015" target="_blank" rel="noopener">arXiv:2407.03015</a></small>
+          </li>
+          <li>
+            <strong>Inclusive reconstruction across boosted↔resolved</strong><br/>
+            <small>Generalized SPA‑Net for HH/HHH (2025). <a href="https://arxiv.org/abs/2412.03819" target="_blank" rel="noopener">arXiv:2412.03819</a></small>
+          </li>
+          <li>
+            <strong>Constraint on the Higgs–charm coupling</strong><br/>
+            <small>ATLAS search and methodology (PhD line). <a href="https://inspirehep.net/literature/2038729" target="_blank" rel="noopener">Inspire record</a></small>
+          </li>
+        </ul>
+        <p class="note">Complete list: <a href="https://inspirehep.net/authors/1623795" target="_blank" rel="noopener">InspireHEP author page</a>.</p>
+      </div>
+      <aside class="card">
+        <p class="kicker">News & pages</p>
+        <ul class="list">
+          <li>Run‑3 HH public page (CMS). <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/Run3HH" target="_blank" rel="noopener">CMS TWiki</a></li>
+          <li>Brown Physics: Postdoctoral Research Associates. <a href="https://physics.brown.edu/people/postdoctoral-research-associates" target="_blank" rel="noopener">Directory</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="awards">
+      <h2>Awards & honors</h2>
+      <div class="timeline">
+        <div class="item">
+          <strong>LPC Distinguished Researcher</strong> — 2025 <span class="tag">Fermilab</span><br/>
+          <small>Program supporting leadership in LHC physics at the CMS LPC.</small>
+        </div>
+        <div class="item">
+          <strong>LPC Distinguished Researcher</strong> — 2024 <span class="tag">Fermilab</span><br/>
+          <small>Higgs self‑coupling program: HH & HHH with advanced ML methods.</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="media">
+      <h2>Media & press</h2>
+      <ul class="list">
+        <li><strong>Nikhef PAPERCLIP video</strong> — “Charming Higgs Bosons”. <a href="https://www.nikhef.nl/en/focusblokken/new-paperclip-video-marko-stamenkovic-explains-his-thesis/" target="_blank" rel="noopener">Watch</a></li>
+        <li><strong>La Liberté</strong> (Fribourg, 16.08.2017). <a href="https://mstamenk.github.io/pages/press/" target="_blank" rel="noopener">Press list</a></li>
+        <li><strong>La Gruyère</strong> (Bulle, 10.11.2018). <a href="https://mstamenk.github.io/pages/press/" target="_blank" rel="noopener">Press list</a></li>
+      </ul>
+      <p class="note">Legacy tutorials (Snakemake, analysis preservation) and blog posts remain available via links on this page.</p>
+    </section>
+
+    <section id="talks">
+      <h2>Talks & slides</h2>
+      <ul class="list">
+        <li>
+          <strong>Parking strategy in CMS</strong> — ATLAS–CMS FTAG Workshop (2024). 
+          <a href="https://indico.cern.ch/event/1387465/contributions/6099638/attachments/2926242/5136950/20240902_ATLAS_CMS_FTAG_Workshop.pdf" target="_blank" rel="noopener">slides (PDF)</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="two">
+      <div>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:marko.stamenkovic@cern.ch">marko.stamenkovic@cern.ch</a>  •  <a href="mailto:Marko_Stamenkovic@brown.edu">Marko_Stamenkovic@brown.edu</a></p>
+        <p>Social: <a href="https://x.com/stamenkm" target="_blank" rel="noopener">X/Twitter</a> · <a href="https://github.com/mstamenk" target="_blank" rel="noopener">GitHub</a> · <a href="https://inspirehep.net/authors/1623795" target="_blank" rel="noopener">InspireHEP</a></p>
+      </div>
+      <aside class="card">
+        <p class="kicker">For recruiters</p>
+        <p>Short bio, research statement, and selected results are summarized above. A printable CV can be added (<code>cv.pdf</code>) and linked here. This site includes schema.org <em>Person</em> metadata for better discoverability.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="two">
+        <p>© <span id="yr"></span> Marko Stamenkovic • Last updated <span id="updated"></span></p>
+        <p class="muted" style="text-align:right">Built with plain HTML/CSS. Deployed on GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // auto year + updated date
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const d = new Date();
+    const opts = {year:'numeric',month:'long',day:'numeric'};
+    document.getElementById('updated').textContent = d.toLocaleDateString(undefined,opts);
+  </script>
+</body>
+</html>
+
